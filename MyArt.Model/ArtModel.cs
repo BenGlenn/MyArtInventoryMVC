@@ -64,6 +64,8 @@ namespace MyArt.Model
         public string Location { get; set; }
     
         public bool Sold { get; set; }
+
+        public string Note { get; set; }
     }
 
     public class ArtNoteDetial

@@ -240,6 +240,8 @@
     <Content Include="Views\Art\Create.cshtml" />
     <Content Include="Views\Art\Details.cshtml" />
     <Content Include="Views\Art\NoteDetails.cshtml" />
+    <Content Include="Views\Art\Edit.cshtml" />
+    <Content Include="Views\Art\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

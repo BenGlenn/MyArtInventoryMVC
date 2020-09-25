@@ -58,6 +58,74 @@ namespace MyArtInventoryMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateArtService();
+            var detail = service.GetArtById(id);
+            var model =
+                new ArtEdit
+                {
+                    ArtID = detail.ArtID,
+                    Title = detail.Title,
+                    DateOfCreation = detail.DateOfCreation,
+                    Style = detail.Style,
+                    Medium = detail.Medium,
+                    Surface = detail.Surface,
+                    Size = detail.Size,
+                    Price = detail.Price,
+                    Location = detail.Location,
+                    Sold = detail.Sold,
+                    Note = detail.Note,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ArtEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ArtID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateArtService();
+
+            if (service.UpdateArt(model))
+            {
+                TempData["SaveResult"] = "Your Art Information Was Updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Art Was Not UPDATED.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateArtService();
+            var model = svc.GetArtById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateArtService();
+
+            service.DeleteArt(id);
+
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
 
         private ArtService CreateArtService()
         {

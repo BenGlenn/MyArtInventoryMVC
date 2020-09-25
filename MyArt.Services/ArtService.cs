@@ -77,6 +77,7 @@ namespace MyArt.Services
                 return
                     new ArtDetail
                     {
+                        ArtID = entity.ArtID,
                         Title = entity.Title,
                         DateOfCreation = entity.DateOfCreation,
                         Style = entity.Style,
@@ -86,6 +87,7 @@ namespace MyArt.Services
                         Price = entity.Price,
                         Location = entity.Location,
                         Sold = entity.Sold,
+                        Note = entity.Note,
                     };
             }
         }
@@ -117,7 +119,7 @@ namespace MyArt.Services
                     ctx
                         .Arts
                         .Single(e => e.ArtID == model.ArtID && e.OwnerID == _userId);
-
+                entity.ArtID = model.ArtID;
                 entity.Title = model.Title;
                 entity.DateOfCreation = model.DateOfCreation;
                 entity.Style = model.Style;
@@ -127,6 +129,7 @@ namespace MyArt.Services
                 entity.Price = model.Price;
                 entity.Location = model.Location;
                 entity.Sold = model.Sold;
+                entity.Note = model.Note;
 
                 return ctx.SaveChanges() == 1;
 
