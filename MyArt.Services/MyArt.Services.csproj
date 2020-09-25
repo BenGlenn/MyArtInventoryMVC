@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyArt.Data\MyArt.Data.csproj">
+      <Project>{7D90CC8E-F6F6-4BE5-B4DB-D6B57A11813C}</Project>
+      <Name>MyArt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyArt.Model\MyArt.Model.csproj">
+      <Project>{72D5F3B3-6A92-4490-95DE-C99DA1E1604F}</Project>
+      <Name>MyArt.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

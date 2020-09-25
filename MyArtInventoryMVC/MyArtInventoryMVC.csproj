@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,6 +236,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Art\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -256,6 +258,14 @@
     <ProjectReference Include="..\MyArt.Data\MyArt.Data.csproj">
       <Project>{7D90CC8E-F6F6-4BE5-B4DB-D6B57A11813C}</Project>
       <Name>MyArt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyArt.Model\MyArt.Model.csproj">
+      <Project>{72d5f3b3-6a92-4490-95de-c99da1e1604f}</Project>
+      <Name>MyArt.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyArt.Services\MyArt.Services.csproj">
+      <Project>{A81D7327-4375-4D99-AD1C-B8E240B18C77}</Project>
+      <Name>MyArt.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -19,6 +19,7 @@ namespace MyArt.Data
         [Required]
         [ForeignKey("Art")]
         public int ArtID { get; set; }
+        public virtual Art Art { get; set; }
 
         [Required]
         [Display(Name = "Add Your Story Here")]
