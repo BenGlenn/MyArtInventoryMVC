@@ -18,30 +18,30 @@ namespace MyArt.Services
             _userId = userId;
         }
 
-    public bool CreateArt(ArtCreate model)
-    {
-        var entity =
-            new Art()
-            {
-                OwnerID = _userId,
-                Title = model.Title,
-                DateOfCreation = model.DateOfCreation,
-                Style = model.Style,
-                Medium = model.Medium,
-                Surface = model.Surface,
-                Size = model.Size,
-                Price = model.Price,
-                Location = model.Location,
-                Sold = model.Sold,
-                Note = model.Note,
-            };
-
-        using (var ctx = new ApplicationDbContext())
+        public bool CreateArt(ArtCreate model)
         {
-            ctx.Arts.Add(entity);
-            return ctx.SaveChanges() == 1;
+            var entity =
+                new Art()
+                {
+                    OwnerID = _userId,
+                    Title = model.Title,
+                    DateOfCreation = model.DateOfCreation,
+                    Style = model.Style,
+                    Medium = model.Medium,
+                    Surface = model.Surface,
+                    Size = model.Size,
+                    Price = model.Price,
+                    Location = model.Location,
+                    Sold = model.Sold,
+                    Note = model.Note,
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Arts.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
         }
-    }
 
         public IEnumerable<ArtListItem> GetArt()
         {
@@ -58,7 +58,7 @@ namespace MyArt.Services
                                     ArtID = e.ArtID,
                                     Title = e.Title,
                                     DateOfCreation = e.DateOfCreation,
-                                
+
                                 }
                         );
 
@@ -77,16 +77,35 @@ namespace MyArt.Services
                 return
                     new ArtDetail
                     {
-                       Title = entity.Title,
-                       DateOfCreation = entity.DateOfCreation,
-                       Style = entity.Style,
-                       Medium = entity.Medium,
-                       Surface = entity.Surface,
-                       Size = entity.Size,
-                       Price = entity.Price,
-                       Location = entity.Location,
-                       Sold = entity.Sold,
+                        Title = entity.Title,
+                        DateOfCreation = entity.DateOfCreation,
+                        Style = entity.Style,
+                        Medium = entity.Medium,
+                        Surface = entity.Surface,
+                        Size = entity.Size,
+                        Price = entity.Price,
+                        Location = entity.Location,
+                        Sold = entity.Sold,
                     };
+            }
+        }
+
+        public ArtNoteDetial GetNoteByArtId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                var entity =
+                   ctx
+                       .Arts
+                       .Single(e => e.ArtID == id && e.OwnerID == _userId);
+            return
+                new ArtNoteDetial
+                {
+                    Title = entity.Title,
+                    Note = entity.Note,
+                };
+
             }
         }
 

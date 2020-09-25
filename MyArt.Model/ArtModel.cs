@@ -44,6 +44,7 @@ namespace MyArt.Model
 
     public class ArtDetail
     {
+        public int ArtID { get; set; }
         public string Title { get; set; }
       
         [Display(Name = "Date of Creation")]
@@ -59,7 +60,7 @@ namespace MyArt.Model
       
         public int Price { get; set; }
  
-        [Display(Name = "Where is this piece located?")]
+        [Display(Name = "Art location?")]
         public string Location { get; set; }
     
         public bool Sold { get; set; }

@@ -43,6 +43,22 @@ namespace MyArtInventoryMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateArtService();
+            var model = svc.GetArtById(id);
+
+            return View(model);
+        }
+        public ActionResult NoteDetails(int id)
+        {
+            var svc = CreateArtService();
+            var model = svc.GetNoteByArtId(id);
+
+            return View(model);
+        }
+
+
         private ArtService CreateArtService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
