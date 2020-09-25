@@ -22,7 +22,9 @@ namespace MyArt.Model
     {
         public int ClientID { get; set; }
         public bool Collector { get; set; }
-        public string FullName  { get; set; }
+        public string FistName  { get; set; }
+        public string LastName { get; set; }
+       
     }
 
     public class ClientDetail
@@ -31,7 +33,7 @@ namespace MyArt.Model
         public bool Collector { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FullName { get; set; }
+      
     }
 
     public class ClientEdit

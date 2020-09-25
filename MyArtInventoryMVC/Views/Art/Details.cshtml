@@ -10,7 +10,6 @@
     <h4>ArtDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-
         <dt>
             @Html.DisplayNameFor(model => model.ArtID)
         </dt>
@@ -33,22 +32,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.DateOfCreation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Style)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Style)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Medium)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Medium)
         </dd>
 
         <dt>
@@ -91,9 +74,17 @@
             @Html.DisplayFor(model => model.Sold)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID}) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -18,23 +18,23 @@ namespace MyArt.Services
             _userId = userId;
         }
 
-    public bool CreateClient(ClientCreate model)
-    {
-        var entity =
-            new Client()
-            {
-                OwnerID = _userId,
-                Collector = model.Collector,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-            };
-
-        using (var ctx = new ApplicationDbContext())
+        public bool CreateClient(ClientCreate model)
         {
-            ctx.Clients.Add(entity);
-            return ctx.SaveChanges() == 1;
+            var entity =
+                new Client()
+                {
+                    OwnerID = _userId,
+                    Collector = model.Collector,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Clients.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
         }
-    }
 
         public IEnumerable<ClientListItem> GetArt()
         {
@@ -48,8 +48,12 @@ namespace MyArt.Services
                             e =>
                                 new ClientListItem
                                 {
-                                   Collector = e.Collector,
-                                   FullName = e.FullName,
+                                    ClientID = e.ClientID,
+                                    Collector = e.Collector,
+                                    FistName = e.FirstName,
+                                    LastName = e.LastName,
+                                
+
                                 }
                         );
 
@@ -71,8 +75,9 @@ namespace MyArt.Services
                     {
                         ClientID = entity.ClientID,
                         Collector = entity.Collector,
-                        FullName = entity.FullName,
-                       
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+
                     };
             }
         }
@@ -85,7 +90,7 @@ namespace MyArt.Services
                     ctx
                         .Clients
                         .Single(e => e.ClientID == model.ClientID && e.OwnerID == _userId);
-
+                entity.ClientID = model.ClientID;
                 entity.Collector = model.Collector;
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;

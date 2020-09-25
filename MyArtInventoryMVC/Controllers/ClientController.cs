@@ -56,6 +56,7 @@ namespace MyArtInventoryMVC.Controllers
             var model =
                 new ClientEdit
                 {
+                    ClientID = detail.ClientID,
                     Collector = detail.Collector,
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,

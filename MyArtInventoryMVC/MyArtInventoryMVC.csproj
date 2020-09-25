@@ -239,14 +239,14 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\Art\Index.cshtml" />
     <Content Include="Views\Art\Create.cshtml" />
-    <Content Include="Views\Art\Details.cshtml" />
     <Content Include="Views\Art\NoteDetails.cshtml" />
     <Content Include="Views\Art\Edit.cshtml" />
     <Content Include="Views\Art\Delete.cshtml" />
-    <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
-    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Art\Details.cshtml" />
     <Content Include="Views\Client\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
