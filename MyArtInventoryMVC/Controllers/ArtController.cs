@@ -122,7 +122,7 @@ namespace MyArtInventoryMVC.Controllers
 
             service.DeleteArt(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your Art was deleted";
 
             return RedirectToAction("Index");
         }
