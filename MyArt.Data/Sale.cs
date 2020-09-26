@@ -16,14 +16,15 @@ namespace MyArt.Data
         public Guid OwnerID { get; set; }
 
         [Required]
-        [ForeignKey("Client")]
         public int ClientID { get; set; }
+        [ForeignKey("ClientID")]
         public virtual Client Client { get; set; }
 
         [Required]
-        [ForeignKey("Art")]
         public int ArtID { get; set; }
+        [ForeignKey("ArtID")]
         public virtual Art Art { get; set; }
+
         [Required]
         public string Location { get; set; }
         [Required]

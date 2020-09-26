@@ -57,6 +57,15 @@
     <Compile Include="Art.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202009260108399_InitialCreate.cs" />
+    <Compile Include="Migrations\202009260108399_InitialCreate.Designer.cs">
+      <DependentUpon>202009260108399_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009261349547_SaleDataFix.cs" />
+    <Compile Include="Migrations\202009261349547_SaleDataFix.Designer.cs">
+      <DependentUpon>202009261349547_SaleDataFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="Story.cs" />
@@ -64,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009260108399_InitialCreate.resx">
+      <DependentUpon>202009260108399_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009261349547_SaleDataFix.resx">
+      <DependentUpon>202009261349547_SaleDataFix.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

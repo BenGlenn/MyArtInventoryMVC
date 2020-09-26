@@ -18,39 +18,44 @@ namespace MyArtInventoryMVC.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            List<Sale> saleList = _db.Sales.ToList();
-            List<Sale> orderedList = saleList.OrderBy(prod => prod.ArtID).ToList();
-            return View(orderedList);
+            //List<Sale> saleList = _db.Sales.ToList();
+            //List<Sale> orderedList = saleList.OrderBy(prod => prod.ArtID).ToList();
+            //return View(orderedList);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new SalesService(userId);
+            var model = service.GetSale();
+            return View(model);
         }
         public ActionResult Create()
         {
-            var client = new SelectList(_db.Clients.ToList(), "ClientID", "FullName");
-            ViewBag.Clients = client;
+          
             var art = new SelectList(_db.Arts.ToList(), "ArtID", "Title");
             ViewBag.Arts = art;
+            var client = new SelectList(_db.Clients.ToList(), "ClientID", "FullName");
+            ViewBag.Clients = client;
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(SaleCreate sale)
+        public ActionResult Create(SaleCreate model)
         {
-            if (ModelState.IsValid)
+
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateSaleService();
+
+            if (service.CreateSale(model))
             {
-                Client client = _db.Clients.Find(sale.ClientID);
-                if (client == null)
-                    return HttpNotFound();
+                TempData["SaveResult"] = "Your Sale was added.";
+                return RedirectToAction("Index");
+            };
 
-                Art art = _db.Arts.Find(sale.ArtID);
-                if (art == null)
-                    return HttpNotFound();
+            ModelState.AddModelError("", "Sale could not be added.");
+            return View(model);
 
-                //_db.Sales.Add(sale);
-              
-                //_db.SaveChanges();
-                //return RedirectToAction("Index");
-            }
-            return View(sale);
+
         }
 
         private SalesService CreateSaleService()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyArt.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -46,6 +47,10 @@ namespace MyArt.Model
         public int SellingPrice { get; set; }
         public int VenderCommission { get; set; }
         public DateTime DateOfTansaction { get; set; }
+        //public Art Art { get; set; }
+        public  string Size { get; set; }
+
+
 
     }
 }
