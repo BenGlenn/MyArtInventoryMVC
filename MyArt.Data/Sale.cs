@@ -11,21 +11,27 @@ namespace MyArt.Data
     public class Sale
     {
         [Key]
-        public int Id { get; set; }
+        public int SaleId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
+        public Guid OwnerID { get; set; }
 
         [Required]
         [ForeignKey("Client")]
         public int ClientID { get; set; }
-
         public virtual Client Client { get; set; }
 
         [Required]
         [ForeignKey("Art")]
         public int ArtID { get; set; }
-
         public virtual Art Art { get; set; }
+        [Required]
+        public string Location { get; set; }
+        [Required]
+        public int ValuedAt { get; set; }
+        [Required]
+        public int SellingPrice  { get; set; }
+        [Required]
+        public int VenderCommission { get; set; }
 
         [Required]
         public DateTime DateOfTransaction { get; set; }

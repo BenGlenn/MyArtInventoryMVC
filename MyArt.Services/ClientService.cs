@@ -36,7 +36,7 @@ namespace MyArt.Services
             }
         }
 
-        public IEnumerable<ClientListItem> GetArt()
+        public IEnumerable<ClientListItem> GetClient()
         {
             using (var ctx = new ApplicationDbContext())
             {

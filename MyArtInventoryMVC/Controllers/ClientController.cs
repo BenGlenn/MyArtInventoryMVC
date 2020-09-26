@@ -16,7 +16,7 @@ namespace MyArtInventoryMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ClientService(userId);
-            var model = service.GetArt();
+            var model = service.GetClient();
             return View(model);
         }
         public ActionResult Create()
