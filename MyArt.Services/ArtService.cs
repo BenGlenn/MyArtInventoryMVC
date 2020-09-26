@@ -57,6 +57,7 @@ namespace MyArt.Services
                                 {
                                     ArtID = e.ArtID,
                                     Title = e.Title,
+                                    Price = e.Price,
                                     DateOfCreation = e.DateOfCreation,
 
                                 }

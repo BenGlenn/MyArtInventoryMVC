@@ -22,21 +22,19 @@ namespace MyArt.Services
 
         public bool CreateSale(SaleCreate model)
         {
-           // Art art = _db.Arts.Find(model.ArtID);
-           // Client client = _db.Clients.Find(model.ClientID);
-           //while art !== null && client !== null 
+
             var entity =
                 new Sale()
                 {
                     OwnerID = _userId,
                     ArtID = model.ArtID,
                     ClientID = model.ClientID,
-                    Location = model.Loccation,
+                    Location = model.Location,
                     ValuedAt = model.ValuedAt,
                     SellingPrice = model.SellingPrice,
                     VenderCommission = model.VenderCommission,
                     DateOfTransaction = model.DateOfTransaction,
-                 
+
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -58,15 +56,15 @@ namespace MyArt.Services
                             e =>
                                 new SaleListItem
                                 {
-                                   SaleID = e.SaleId,
-                                   ArtID = e.ArtID,
-                                   ClientID = e.ClientID,
-                                   Location = e.Location,
-                                   ValuedAt = e.ValuedAt,
-                                   SellingPrice = e.SellingPrice,
-                                   VenderCommission = e.VenderCommission,
-                                   DateOfTansaction = e.DateOfTransaction,
-                                   Size = e.Art.Size,
+                                    SaleID = e.SaleID,
+                                    ArtID = e.ArtID,
+                                    ClientID = e.ClientID,
+                                    Location = e.Location,
+                                    ValuedAt = e.ValuedAt,
+                                    SellingPrice = e.SellingPrice,
+                                    VenderCommission = e.VenderCommission,
+                                    DateOfTansaction = e.DateOfTransaction,
+                                    Size = e.Art.Size,
                                 }
                         );
 
@@ -74,6 +72,83 @@ namespace MyArt.Services
             }
         }
 
+        public SaleDetail GetSaleByID(int id)
+        {
 
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sales
+                        .Single(e => e.ClientID == id && e.OwnerID == _userId);
+                return
+                    new SaleDetail
+                    {
+                        SaleID = entity.SaleID,
+                        ArtID = entity.ArtID,
+                        ClientID = entity.ClientID,
+                        FullName = entity.Client.FullName,
+                        Title = entity.Art.Title,
+                        Location = entity.Location,
+                        ValuedAt = entity.ValuedAt,
+                        SellingPrice = entity.SellingPrice,
+                        VenderCommission = entity.VenderCommission,
+                        DateOfTransaction = entity.DateOfTransaction,
+
+                    };
+            }
+        }
+
+        public bool UpdateSale(SaleEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sales
+                        .Single(e => e.SaleID == model.SaleId && e.OwnerID == _userId);
+                entity.ArtID = model.ArtID;
+                entity.ClientID = model.ClientID;
+                entity.Location = model.Location;
+                entity.ValuedAt = model.ValuedAt;
+                entity.SellingPrice = model.SellingPrice;
+                entity.VenderCommission = model.VenderCommission;
+                entity.DateOfTransaction = model.DateOfTransaction;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+
+        public bool DeleteSale(int saleId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                      ctx
+                      .Sales
+                      .Single(e => e.SaleID == saleId && e.OwnerID == _userId);
+
+                ctx.Sales.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+            //public bool DeleteSale(int saleId)
+            //{
+            //    using (var ctx = new ApplicationDbContext())
+            //    {
+            //        var entity =
+            //            ctx
+            //                .Sales
+            //                .Single(e => e.SaleId == saleId && e.OwnerID == _userId);
+
+            //        ctx.Sales.Remove(entity);
+
+            //        return ctx.SaveChanges() == 1;
+            //    }
+            //}
+
+        }
     }
-}

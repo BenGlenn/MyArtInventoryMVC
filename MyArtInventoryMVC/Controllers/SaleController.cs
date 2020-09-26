@@ -54,9 +54,81 @@ namespace MyArtInventoryMVC.Controllers
 
             ModelState.AddModelError("", "Sale could not be added.");
             return View(model);
-
-
         }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateSaleService();
+            var model = svc.GetSaleByID(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateSaleService();
+            var detail = service.GetSaleByID(id);
+            var model =
+                new SaleEdit
+                {
+                   SaleId = detail.SaleID,
+                   ArtID = detail.ArtID,
+                   ClientID = detail.ClientID,
+                   Location = detail.Location,
+                   ValuedAt = detail.ValuedAt,
+                   SellingPrice = detail.SellingPrice,
+                   VenderCommission = detail.VenderCommission,
+                   DateOfTransaction = detail.DateOfTransaction,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, SaleEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.SaleId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateSaleService();
+
+            if (service.UpdateSale(model))
+            {
+                TempData["SaveResult"] = "Your Sale Information Was Updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Sale Could Not Be UPDATED.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateSaleService();
+            var model = svc.GetSaleByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateSaleService();
+
+            service.DeleteSale(id);
+
+            TempData["SaveResult"] = "Your Sale was deleted";
+
+            return RedirectToAction("Index");
+        }
+
 
         private SalesService CreateSaleService()
         {

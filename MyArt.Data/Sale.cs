@@ -11,7 +11,7 @@ namespace MyArt.Data
     public class Sale
     {
         [Key]
-        public int SaleId { get; set; }
+        public int SaleID { get; set; }
         [Required]
         public Guid OwnerID { get; set; }
 
@@ -28,11 +28,11 @@ namespace MyArt.Data
         [Required]
         public string Location { get; set; }
         [Required]
-        public int ValuedAt { get; set; }
+        public decimal ValuedAt { get; set; }
         [Required]
-        public int SellingPrice  { get; set; }
+        public decimal SellingPrice  { get; set; }
         [Required]
-        public int VenderCommission { get; set; }
+        public decimal VenderCommission { get; set; }
 
         [Required]
         public DateTime DateOfTransaction { get; set; }

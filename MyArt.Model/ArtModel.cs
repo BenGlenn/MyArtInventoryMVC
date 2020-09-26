@@ -24,7 +24,7 @@ namespace MyArt.Model
         [Required]
         public string Size { get; set; }
         [Required]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
         [Display(Name = "Where is this piece located?")]
         public string Location { get; set; }
@@ -38,6 +38,7 @@ namespace MyArt.Model
     {
         public int ArtID { get; set; }
         public string Title { get; set; }
+        public decimal Price { get; set; }
         public string DateOfCreation { get; set; }
 
     }
@@ -58,7 +59,7 @@ namespace MyArt.Model
        
         public string Size { get; set; }
       
-        public int Price { get; set; }
+        public decimal Price { get; set; }
  
         [Display(Name = "Art location?")]
         public string Location { get; set; }
@@ -92,7 +93,7 @@ namespace MyArt.Model
       
         public string Size { get; set; }
         
-        public int Price { get; set; }
+        public decimal Price { get; set; }
        
         public string Location { get; set; }
      

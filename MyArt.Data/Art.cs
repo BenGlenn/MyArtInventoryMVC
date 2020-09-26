@@ -26,7 +26,7 @@ namespace MyArt.Data
         [Required]
         public string Size { get; set; }
         [Required]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
         public string Location { get; set; }
         [Required]

@@ -18,19 +18,19 @@ namespace MyArt.Model
 
         [Required]
         [Display(Name = "Where Item Sold")]
-        public string Loccation { get; set; }
+        public string Location { get; set; }
 
         [Required]
         [Display(Name = "Art Value")]
-        public int ValuedAt { get; set; }
+        public decimal ValuedAt { get; set; }
 
         [Required]
         [Display(Name = "Selling Price")]
-        public int SellingPrice { get; set; }
+        public decimal SellingPrice { get; set; }
 
         [Required]
         [Display(Name = "Vender Fee")]
-        public int VenderCommission { get; set; }
+        public decimal VenderCommission { get; set; }
 
         [Required]
         [Display(Name = "Date of Sale")]
@@ -43,14 +43,38 @@ namespace MyArt.Model
         public int ArtID { get; set; }
         public int ClientID { get; set; }
         public string Location { get; set; }
-        public int ValuedAt { get; set; }
-        public int SellingPrice { get; set; }
-        public int VenderCommission { get; set; }
+        public decimal ValuedAt { get; set; }
+        public decimal SellingPrice { get; set; }
+        public decimal VenderCommission { get; set; }
         public DateTime DateOfTansaction { get; set; }
         //public Art Art { get; set; }
         public  string Size { get; set; }
-
-
-
     }
+
+    public class SaleDetail
+    {
+        public int SaleID { get; set; }
+        public int ArtID { get; set; }
+        public int ClientID { get; set; }
+        public string FullName { get; set; }
+        public string Title { get; set; }
+        public string Location { get; set; }
+        public decimal ValuedAt { get; set; }
+        public decimal SellingPrice { get; set; }
+        public decimal VenderCommission { get; set; }
+        public DateTime DateOfTransaction { get; set; }
+    }
+
+    public class SaleEdit
+    {
+        public int SaleId { get; set; }
+        public int ArtID { get; set; }
+        public int ClientID { get; set; }
+        public string Location { get; set; }
+        public decimal ValuedAt { get; set; }
+        public decimal SellingPrice { get; set; }
+        public decimal VenderCommission { get; set; }
+        public DateTime DateOfTransaction { get; set; }
+    }
+
 }
