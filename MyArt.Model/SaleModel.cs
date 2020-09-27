@@ -67,9 +67,9 @@ namespace MyArt.Model
 
     public class SaleEdit
     {
-        public int SaleId { get; set; }
-        public int ArtID { get; set; }
-        public int ClientID { get; set; }
+        public int SaleID { get; set; }
+        //public int ArtID { get; set; }
+        //public int ClientID { get; set; }
         public string Location { get; set; }
         public decimal ValuedAt { get; set; }
         public decimal SellingPrice { get; set; }

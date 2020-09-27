@@ -70,9 +70,9 @@ namespace MyArtInventoryMVC.Controllers
             var model =
                 new SaleEdit
                 {
-                   SaleId = detail.SaleID,
-                   ArtID = detail.ArtID,
-                   ClientID = detail.ClientID,
+                   //SaleId = detail.SaleID,
+                   //ArtID = detail.ArtID,
+                   //ClientID = detail.ClientID,
                    Location = detail.Location,
                    ValuedAt = detail.ValuedAt,
                    SellingPrice = detail.SellingPrice,
@@ -88,7 +88,7 @@ namespace MyArtInventoryMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.SaleId != id)
+            if (model.SaleID != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);

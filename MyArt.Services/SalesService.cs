@@ -11,7 +11,7 @@ namespace MyArt.Services
 {
     public class SalesService
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
+       
 
         private readonly Guid _userId;
 
@@ -79,8 +79,9 @@ namespace MyArt.Services
             {
                 var entity =
                     ctx
-                        .Sales
-                        .Single(e => e.ClientID == id && e.OwnerID == _userId);
+                    .Sales
+                    .Single(e => e.SaleID == id && e.OwnerID == _userId);
+                        
                 return
                     new SaleDetail
                     {
@@ -106,9 +107,9 @@ namespace MyArt.Services
                 var entity =
                     ctx
                         .Sales
-                        .Single(e => e.SaleID == model.SaleId && e.OwnerID == _userId);
-                entity.ArtID = model.ArtID;
-                entity.ClientID = model.ClientID;
+                        .Single(e => e.SaleID == model.SaleID && e.OwnerID == _userId);
+                //entity.ArtID = model.ArtID;
+                //entity.ClientID = model.ClientID;
                 entity.Location = model.Location;
                 entity.ValuedAt = model.ValuedAt;
                 entity.SellingPrice = model.SellingPrice;
