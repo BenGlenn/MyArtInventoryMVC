@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MyArt.Model.ArtListItem>
+
+@{
+    ViewBag.Title = "ListUnSoldArt";
+}
+
+<h2>ListUnSoldArt</h2>
+@Html.ActionLink("Back to List", "Index")
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sold)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sold)
+            </td>
+            <td>
+                @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+
+            </td>
+        </tr>
+    }
+
+</table>

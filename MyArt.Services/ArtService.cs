@@ -59,6 +59,31 @@ namespace MyArt.Services
                                     Title = e.Title,
                                     Price = e.Price,
                                     DateOfCreation = e.DateOfCreation,
+                                    Sold = e.Sold,
+
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<ArtListItem> GetUnSoldArt()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Arts
+                        .Where(e => e.OwnerID == _userId && e.Sold == false)
+                        .Select(
+                            e =>
+                                new ArtListItem
+                                {
+                                    ArtID = e.ArtID,
+                                    Title = e.Title,
+                                    Price = e.Price,
+                                    DateOfCreation = e.DateOfCreation,
 
                                 }
                         );
@@ -92,6 +117,32 @@ namespace MyArt.Services
                     };
             }
         }
+
+        //public ArtDetail GetArtBySold()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Arts
+        //                .Single(e => e.Sold == false && e.OwnerID == _userId);
+        //        return
+        //            new ArtDetail
+        //            {
+        //                ArtID = entity.ArtID,
+        //                Title = entity.Title,
+        //                DateOfCreation = entity.DateOfCreation,
+        //                Style = entity.Style,
+        //                Medium = entity.Medium,
+        //                Surface = entity.Surface,
+        //                Size = entity.Size,
+        //                Price = entity.Price,
+        //                Location = entity.Location,
+        //                Sold = entity.Sold,
+        //                Note = entity.Note,
+        //            };
+        //    }
+        //}
 
         public ArtNoteDetial GetNoteByArtId(int id)
         {

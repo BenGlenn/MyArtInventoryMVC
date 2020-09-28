@@ -20,6 +20,13 @@ namespace MyArtInventoryMVC.Controllers
             return View(model);
         }
 
+        public ActionResult ListUnSoldArt()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ArtService(userId);
+            var model = service.GetUnSoldArt();
+            return View(model);
+        }
         public ActionResult Create()
         {
             return View();

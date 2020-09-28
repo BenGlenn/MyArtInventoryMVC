@@ -13,14 +13,12 @@ namespace MyArtInventoryMVC.Controllers
 {
     public class SaleController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
+       
 
         // GET: Sale
         public ActionResult Index()
         {
-            //List<Sale> saleList = _db.Sales.ToList();
-            //List<Sale> orderedList = saleList.OrderBy(prod => prod.ArtID).ToList();
-            //return View(orderedList);
+           
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new SalesService(userId);
             var model = service.GetSale();
@@ -28,13 +26,19 @@ namespace MyArtInventoryMVC.Controllers
         }
         public ActionResult Create()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var artService = new ArtService(userId);
+            var clientService = new ClientService(userId);
+            var clientID = clientService.GetClient();
+            var artID = artService.GetUnSoldArt();
           
-            var art = new SelectList(_db.Arts.ToList(), "ArtID", "Title");
+            var art = new SelectList( artID, "ArtID", "Title");
             ViewBag.Arts = art;
-            var client = new SelectList(_db.Clients.ToList(), "ClientID", "FullName");
+            var client = new SelectList( clientID, "ClientID", "FullName");
             ViewBag.Clients = client;
 
             return View();
+           
         }
 
         [HttpPost]
@@ -136,5 +140,7 @@ namespace MyArtInventoryMVC.Controllers
             var service = new SalesService(userId);
             return service;
         }
+
+       
     }
 }

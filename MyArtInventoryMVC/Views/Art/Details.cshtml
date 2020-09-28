@@ -35,6 +35,22 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Style)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Style)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medium)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Surface)
         </dt>
 
@@ -85,6 +101,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

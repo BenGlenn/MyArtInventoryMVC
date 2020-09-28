@@ -7,7 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("ADD ART", "Create")
+</p>
+<p>
+    @Html.ActionLink("See Un-Sold Art", "ListUnSoldArt")
 </p>
 <table class="table">
     <tr>
@@ -20,28 +23,34 @@
         <th>
             @Html.DisplayNameFor(model => model.DateOfCreation)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sold)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArtID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfCreation)
-        </td>
-        <td>
-            @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
-            @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ArtID }) 
-           
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ArtID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfCreation)
+    </td>
+    <th>
+        @Html.DisplayFor(model => item.Sold)
+    </th>
+    <td>
+        @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
+        @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+
+    </td>
+</tr>
 }
 
 </table>

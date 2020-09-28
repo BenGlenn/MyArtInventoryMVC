@@ -40,6 +40,7 @@ namespace MyArt.Model
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string DateOfCreation { get; set; }
+        public bool Sold { get; set; }
 
     }
 

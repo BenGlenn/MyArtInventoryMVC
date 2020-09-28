@@ -50,7 +50,7 @@ namespace MyArt.Services
                                 {
                                     ClientID = e.ClientID,
                                     Collector = e.Collector,
-                                    FistName = e.FirstName,
+                                    FirstName = e.FirstName,
                                     LastName = e.LastName,
                                 
 
