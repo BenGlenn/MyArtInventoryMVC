@@ -32,7 +32,7 @@ namespace MyArt.Services
                     Price = model.Price,
                     Location = model.Location,
                     Sold = model.Sold,
-                    DateOfCreation = model.DateOfTransaction,
+                    DateOfCreation = model.DateOfCreation,
                     Note = model.Note,
                 };
 
@@ -180,7 +180,7 @@ namespace MyArt.Services
                 entity.Price = model.Price;
                 entity.Location = model.Location;
                 entity.Sold = model.Sold;
-                entity.DateOfCreation = model.DateOfTransaction;
+                entity.DateOfCreation = model.DateOfCreation;
                 entity.Note = model.Note;
 
                 return ctx.SaveChanges() == 1;

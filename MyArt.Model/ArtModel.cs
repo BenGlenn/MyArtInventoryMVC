@@ -31,7 +31,8 @@ namespace MyArt.Model
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfTransaction { get; set; }
+        [Display(Name = "Date of Creation")]
+        public DateTime DateOfCreation { get; set; }
 
         public string Note { get; set; }
 
@@ -106,7 +107,8 @@ namespace MyArt.Model
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfTransaction { get; set; }
+        [Display(Name = "Date of Creation")]
+        public DateTime DateOfCreation { get; set; }
 
         public string Note { get; set; }
     }

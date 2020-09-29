@@ -81,7 +81,7 @@ namespace MyArtInventoryMVC.Controllers
                     Price = detail.Price,
                     Location = detail.Location,
                     Sold = detail.Sold,
-                    DateOfTransaction = detail.DateOfCreation,
+                    DateOfCreation = detail.DateOfCreation,
                     Note = detail.Note,
                 };
             return View(model);

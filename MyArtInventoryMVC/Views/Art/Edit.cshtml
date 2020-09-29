@@ -14,6 +14,15 @@
 <div class="form-horizontal">
     <h4>ArtEdit</h4>
     <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sold, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-8">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Sold)
+                @Html.ValidationMessageFor(model => model.Sold, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.ArtID, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -85,15 +94,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Sold, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Sold)
-                @Html.ValidationMessageFor(model => model.Sold, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })

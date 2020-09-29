@@ -30,6 +30,9 @@ namespace MyArt.Services
                     Email = model.Email,
                     PhoneNumber = model.PhoneNumber,
                     Address = model.Address,
+                    City = model.City,
+                    State = model.State,
+                    ZipCode = model.ZipCode,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -38,6 +41,7 @@ namespace MyArt.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
 
         public IEnumerable<ClientListItem> GetClient()
         {
@@ -83,6 +87,9 @@ namespace MyArt.Services
                         Email = entity.Email,
                         PhoneNumber = entity.PhoneNumber,
                         Address = entity.Address,
+                        City = entity.City,
+                        State = entity.State,
+                        ZipCode = entity.ZipCode,
 
                     };
             }
@@ -103,6 +110,9 @@ namespace MyArt.Services
                 entity.Email = model.Email;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Address = model.Address;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.ZipCode = model.ZipCode;
 
                 return ctx.SaveChanges() == 1;
 

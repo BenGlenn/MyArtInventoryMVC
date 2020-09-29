@@ -41,6 +41,25 @@ namespace MyArtInventoryMVC.Controllers
             ModelState.AddModelError("", "Client could not be added.");
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NewSaleCreate(ClientCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateClientService();
+
+            if (service.CreateClient(model))
+            {
+                TempData["SaveResult"] = "Your client was added.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Client could not be added.");
+            return View(model);
+        }
+
         public ActionResult Details(int id)
         {
             var svc = CreateClientService();

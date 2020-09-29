@@ -258,6 +258,7 @@
     <Content Include="Views\Sale\Delete.cshtml" />
     <Content Include="Views\Sale\Edit.cshtml" />
     <Content Include="Views\Art\ListUnSoldArt.cshtml" />
+    <Content Include="Views\Client\NewSaleCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
