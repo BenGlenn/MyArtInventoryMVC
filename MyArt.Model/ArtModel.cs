@@ -10,11 +10,8 @@ namespace MyArt.Model
 {
     public class ArtCreate
     {
-       
-        public string Title { get; set; }
         [Required]
-        [Display(Name = "Date of Creation")]
-        public string DateOfCreation { get; set; }
+        public string Title { get; set; }
         [Required]
         public Style Style { get; set; }
         [Required]
@@ -31,7 +28,13 @@ namespace MyArt.Model
         [Required]
         public bool Sold { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime DateOfTransaction { get; set; }
+
         public string Note { get; set; }
+
     }
 
     public class ArtListItem
@@ -39,7 +42,8 @@ namespace MyArt.Model
         public int ArtID { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
-        public string DateOfCreation { get; set; }
+        [Display(Name = "Date of Creation")]
+        public DateTime DateOfCreation { get; set; }
         public bool Sold { get; set; }
 
     }
@@ -48,23 +52,23 @@ namespace MyArt.Model
     {
         public int ArtID { get; set; }
         public string Title { get; set; }
-      
+
         [Display(Name = "Date of Creation")]
-        public string DateOfCreation { get; set; }
-    
+        public DateTime DateOfCreation { get; set; }
+
         public Style Style { get; set; }
-      
+
         public Medium Medium { get; set; }
-    
+
         public string Surface { get; set; }
-       
+
         public string Size { get; set; }
-      
+
         public decimal Price { get; set; }
- 
+
         [Display(Name = "Art location?")]
         public string Location { get; set; }
-    
+
         public bool Sold { get; set; }
 
         public string Note { get; set; }
@@ -74,7 +78,7 @@ namespace MyArt.Model
     {
 
         public string Title { get; set; }
-  
+
         public string Note { get; set; }
     }
 
@@ -83,22 +87,26 @@ namespace MyArt.Model
         public int ArtID { get; set; }
 
         public string Title { get; set; }
+
      
-        public string DateOfCreation { get; set; }
-     
+
         public Style Style { get; set; }
-       
+
         public Medium Medium { get; set; }
-      
+
         public string Surface { get; set; }
-      
+
         public string Size { get; set; }
-        
+
         public decimal Price { get; set; }
-       
+
         public string Location { get; set; }
-     
+
         public bool Sold { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime DateOfTransaction { get; set; }
 
         public string Note { get; set; }
     }

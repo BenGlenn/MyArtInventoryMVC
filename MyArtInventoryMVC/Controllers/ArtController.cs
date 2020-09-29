@@ -74,7 +74,6 @@ namespace MyArtInventoryMVC.Controllers
                 {
                     ArtID = detail.ArtID,
                     Title = detail.Title,
-                    DateOfCreation = detail.DateOfCreation,
                     Style = detail.Style,
                     Medium = detail.Medium,
                     Surface = detail.Surface,
@@ -82,6 +81,7 @@ namespace MyArtInventoryMVC.Controllers
                     Price = detail.Price,
                     Location = detail.Location,
                     Sold = detail.Sold,
+                    DateOfTransaction = detail.DateOfCreation,
                     Note = detail.Note,
                 };
             return View(model);

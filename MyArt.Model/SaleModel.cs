@@ -33,7 +33,8 @@ namespace MyArt.Model
         public decimal VenderCommission { get; set; }
 
         [Required]
-        [Display(Name = "Date of Sale")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfTransaction { get; set; }
     }
 

@@ -27,6 +27,9 @@ namespace MyArt.Services
                     Collector = model.Collector,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Address = model.Address,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -77,6 +80,9 @@ namespace MyArt.Services
                         Collector = entity.Collector,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
+                        Email = entity.Email,
+                        PhoneNumber = entity.PhoneNumber,
+                        Address = entity.Address,
 
                     };
             }
@@ -94,6 +100,9 @@ namespace MyArt.Services
                 entity.Collector = model.Collector;
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
+                entity.Email = model.Email;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.Address = model.Address;
 
                 return ctx.SaveChanges() == 1;
 

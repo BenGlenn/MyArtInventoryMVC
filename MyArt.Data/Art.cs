@@ -15,8 +15,7 @@ namespace MyArt.Data
         public Guid OwnerID { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
-        public string DateOfCreation { get; set; }
+      
         [Required]
         public Style Style { get; set; }
         [Required]
@@ -31,6 +30,9 @@ namespace MyArt.Data
         public string Location { get; set; }
         [Required]
         public bool Sold { get; set; }
+
+        [Required]
+        public DateTime DateOfCreation { get; set; }
 
         public string Note { get; set; }
     }

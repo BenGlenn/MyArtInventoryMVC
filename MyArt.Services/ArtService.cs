@@ -25,7 +25,6 @@ namespace MyArt.Services
                 {
                     OwnerID = _userId,
                     Title = model.Title,
-                    DateOfCreation = model.DateOfCreation,
                     Style = model.Style,
                     Medium = model.Medium,
                     Surface = model.Surface,
@@ -33,6 +32,7 @@ namespace MyArt.Services
                     Price = model.Price,
                     Location = model.Location,
                     Sold = model.Sold,
+                    DateOfCreation = model.DateOfTransaction,
                     Note = model.Note,
                 };
 
@@ -105,7 +105,6 @@ namespace MyArt.Services
                     {
                         ArtID = entity.ArtID,
                         Title = entity.Title,
-                        DateOfCreation = entity.DateOfCreation,
                         Style = entity.Style,
                         Medium = entity.Medium,
                         Surface = entity.Surface,
@@ -113,6 +112,7 @@ namespace MyArt.Services
                         Price = entity.Price,
                         Location = entity.Location,
                         Sold = entity.Sold,
+                        DateOfCreation = entity.DateOfCreation,
                         Note = entity.Note,
                     };
             }
@@ -173,7 +173,6 @@ namespace MyArt.Services
                         .Single(e => e.ArtID == model.ArtID && e.OwnerID == _userId);
                 entity.ArtID = model.ArtID;
                 entity.Title = model.Title;
-                entity.DateOfCreation = model.DateOfCreation;
                 entity.Style = model.Style;
                 entity.Medium = model.Medium;
                 entity.Surface = model.Surface;
@@ -181,6 +180,7 @@ namespace MyArt.Services
                 entity.Price = model.Price;
                 entity.Location = model.Location;
                 entity.Sold = model.Sold;
+                entity.DateOfCreation = model.DateOfTransaction;
                 entity.Note = model.Note;
 
                 return ctx.SaveChanges() == 1;

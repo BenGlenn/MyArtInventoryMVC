@@ -57,6 +57,15 @@
     <Compile Include="Art.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202009262120217_InitialCreate.cs" />
+    <Compile Include="Migrations\202009262120217_InitialCreate.Designer.cs">
+      <DependentUpon>202009262120217_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009291046540_AddedToClientDB.cs" />
+    <Compile Include="Migrations\202009291046540_AddedToClientDB.Designer.cs">
+      <DependentUpon>202009291046540_AddedToClientDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="Story.cs" />
@@ -64,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009262120217_InitialCreate.resx">
+      <DependentUpon>202009262120217_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009291046540_AddedToClientDB.resx">
+      <DependentUpon>202009291046540_AddedToClientDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
