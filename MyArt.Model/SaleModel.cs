@@ -10,6 +10,7 @@ namespace MyArt.Model
 {
     public class SaleCreate
     {
+      
         [Required]
         public int ArtID { get; set; }
 
@@ -78,4 +79,5 @@ namespace MyArt.Model
         public DateTime DateOfTransaction { get; set; }
     }
 
+   
 }

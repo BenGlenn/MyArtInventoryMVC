@@ -1,4 +1,4 @@
-﻿using MyArt.Data;
+﻿ using MyArt.Data;
 using MyArt.Model;
 using MyArtInventoryMVC.Data;
 using System;
@@ -68,6 +68,32 @@ namespace MyArt.Services
             }
         }
 
+        public IEnumerable<ArtListItem> GetSoldArt()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Arts
+                        .Where(e => e.OwnerID == _userId && e.Sold == true)
+                        .Select(
+                            e =>
+                                new ArtListItem
+                                {
+                                    ArtID = e.ArtID,
+                                    Title = e.Title,
+                                    Price = e.Price,
+                                    DateOfCreation = e.DateOfCreation,
+
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+
+
         public IEnumerable<ArtListItem> GetUnSoldArt()
         {
             using (var ctx = new ApplicationDbContext())
@@ -118,29 +144,16 @@ namespace MyArt.Services
             }
         }
 
-        //public ArtDetail GetArtBySold()
+        //public bool SoldArtTrue(int id)
         //{
         //    using (var ctx = new ApplicationDbContext())
         //    {
         //        var entity =
         //            ctx
         //                .Arts
-        //                .Single(e => e.Sold == false && e.OwnerID == _userId);
-        //        return
-        //            new ArtDetail
-        //            {
-        //                ArtID = entity.ArtID,
-        //                Title = entity.Title,
-        //                DateOfCreation = entity.DateOfCreation,
-        //                Style = entity.Style,
-        //                Medium = entity.Medium,
-        //                Surface = entity.Surface,
-        //                Size = entity.Size,
-        //                Price = entity.Price,
-        //                Location = entity.Location,
-        //                Sold = entity.Sold,
-        //                Note = entity.Note,
-        //            };
+        //                .Single(e => e.ArtID == id && e.OwnerID == _userId);
+        //        return entity.Sold = true;
+                   
         //    }
         //}
 
@@ -202,7 +215,6 @@ namespace MyArt.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
 
 
     }

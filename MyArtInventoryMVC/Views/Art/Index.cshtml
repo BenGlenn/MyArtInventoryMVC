@@ -10,8 +10,14 @@
     @Html.ActionLink("ADD ART", "Create")
 </p>
 <p>
-    @Html.ActionLink("See Un-Sold Art", "ListUnSoldArt")
+    @Html.ActionLink("See All Un-Sold Art", "ListUnSoldArt")
 </p>
+<p>
+    @Html.ActionLink("Total Sales", "GetTotalSales")
+</p>
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -32,31 +38,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ArtID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateOfCreation)
-    </td>
-    <th>
-        @Html.DisplayFor(model => item.Sold)
-    </th>
-    <td>
-        @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
-        @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfCreation)
+            </td>
+            <th>
+                @Html.DisplayFor(model => item.Sold)
+            </th>
 
-    </td>
-</tr>
-}
+
+            <td>
+                @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+
+            </td>
+        </tr>
+    }
 
 </table>

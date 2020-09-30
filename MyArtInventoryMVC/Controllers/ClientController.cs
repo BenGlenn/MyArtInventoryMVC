@@ -53,11 +53,11 @@ namespace MyArtInventoryMVC.Controllers
             if (service.CreateClient(model))
             {
                 TempData["SaveResult"] = "Your client was added.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Sale");
             };
 
             ModelState.AddModelError("", "Client could not be added.");
-            return View(model);
+            return RedirectToAction("Create", "Sale", model);
         }
 
         public ActionResult Details(int id)

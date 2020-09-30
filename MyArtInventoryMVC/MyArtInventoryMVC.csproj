@@ -259,6 +259,9 @@
     <Content Include="Views\Sale\Edit.cshtml" />
     <Content Include="Views\Art\ListUnSoldArt.cshtml" />
     <Content Include="Views\Client\NewSaleCreate.cshtml" />
+    <Content Include="Views\Sale\View.cshtml" />
+    <Content Include="Views\Sale\SaleDirection.cshtml" />
+    <Content Include="Views\Art\GetTotalSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

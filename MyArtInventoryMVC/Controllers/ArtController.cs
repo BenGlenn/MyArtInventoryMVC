@@ -32,6 +32,14 @@ namespace MyArtInventoryMVC.Controllers
             return View();
         }
 
+        public ActionResult GetTotalSales()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ArtService(userId);
+            var model = service.GetSoldArt();
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArtCreate model)

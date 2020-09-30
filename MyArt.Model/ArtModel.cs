@@ -113,6 +113,13 @@ namespace MyArt.Model
         public string Note { get; set; }
     }
 
+    public class GetArtPriceTotal
+    {
+
+        public decimal Price { get; set; }
+
+     
+    }
 
 
 }

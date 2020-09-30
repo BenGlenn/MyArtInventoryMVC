@@ -49,9 +49,11 @@ namespace MyArtInventoryMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateSaleService();
+            
 
             if (service.CreateSale(model))
             {
+               
                 TempData["SaveResult"] = "Your Sale was added.";
                 return RedirectToAction("Index");
             };
@@ -65,6 +67,14 @@ namespace MyArtInventoryMVC.Controllers
             var model = svc.GetSaleByID(id);
 
             return View(model);
+        }
+
+        public ActionResult SaleDirection()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new SalesService(userId);
+
+            return View();
         }
 
         public ActionResult Edit(int id)
