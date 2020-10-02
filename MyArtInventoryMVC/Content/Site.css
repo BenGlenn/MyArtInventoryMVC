@@ -23,16 +23,9 @@ textarea {
     max-width: 280px;
 }
 
-.titleFont{
-    font-family:Arial;
-  
-}
-
-
-
-.jumbotron_two {
-    background-image: url("asset/Jumbo_3.png");
-    height: 600px;
+.jumbotronArt {
+    background-image: url("asset/BW-2.png");
+    height: 100px;
     /*    opacity: .8;*/
     /*   background-color: #17234E;
      margin-bottom: 0;`enter code here`

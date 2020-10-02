@@ -183,6 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\asset\6.png" />
+    <Content Include="Content\asset\BlackWhiteJumbo.png" />
+    <Content Include="Content\asset\BW-1.png" />
+    <Content Include="Content\asset\BW-2.png" />
+    <Content Include="Content\asset\BW-3.png" />
+    <Content Include="Content\asset\BW-4.png" />
+    <Content Include="Content\asset\BW-5.png" />
     <Content Include="Content\asset\Jumbo_1.png" />
     <Content Include="Content\asset\Jumbo_2.png" />
     <Content Include="Content\asset\Jumbo_3.png" />

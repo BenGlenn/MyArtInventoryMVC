@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/css")
-  @*  @Styles.Render("~/Content/Site.css")*@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
@@ -15,21 +15,21 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-          @*  @Html.ActionLink("ADD SALE", "Index", "art", null, new { @class = "addSale" })*@
+            @*  @Html.ActionLink("ADD SALE", "Index", "art", null, new { @class = "addSale" })*@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("MY ART INVENTORY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("ADD SALE", "Index", "art", new { area = "" }, new { @class = "navbar-brand btn btn-default btn-xs" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                   
+                    <li>@Html.ActionLink("MY ART INVENTORY", "Index", "Home")</li>
+                    <li>@Html.ActionLink("COLLECTION", "Index", "Art")</li>
                     <li>@Html.ActionLink("ADD ART", "Create", "Art")</li>
                     <li>@Html.ActionLink("CLIENTS", "Index", "Client")</li>
-                    <li>@Html.ActionLink("ADD SALE", "Index", "art", null, new { @class = "btn btn-danger" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
