@@ -3774,7 +3774,7 @@ tbody.collapse.in {
   border-bottom-left-radius: 0;
 }
 .btn-group > .btn-group {
-  float: left;
+  float: right;
 }
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
@@ -5032,11 +5032,13 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color: #eeeeee;
+    background-image: url("asset/Jumbo_5.png");
+    height: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eeeeee;
 }
 .jumbotron h1,
 .jumbotron .h1 {

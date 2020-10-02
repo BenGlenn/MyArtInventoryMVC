@@ -45,10 +45,11 @@
                 @Html.DisplayFor(modelItem => item.Sold)
             </td>
             <td>
-                @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
+                @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID }) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID }) |
+                @Html.ActionLink("Buy", "Create", "Sale")
 
             </td>
         </tr>

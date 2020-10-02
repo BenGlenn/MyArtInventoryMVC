@@ -32,13 +32,15 @@ namespace MyArtInventoryMVC.Controllers
             return View();
         }
 
-        public ActionResult GetTotalSales()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ArtService(userId);
-            var model = service.GetSoldArt();
-            return View(model);
-        }
+        // NO LONGER NEEDED GOING TO SALE INDEX ////
+
+        //public ActionResult GetTotalSales()
+        //{
+        //    var userId = Guid.Parse(User.Identity.GetUserId());
+        //    var service = new ArtService(userId);
+        //    var model = service.GetSoldArt();
+        //    return View(model);
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

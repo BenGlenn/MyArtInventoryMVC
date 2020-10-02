@@ -28,7 +28,8 @@ namespace MyArt.Data
         [Required]
         public string Location { get; set; }
         [Required]
-        public decimal ValuedAt { get; set; }
+        public decimal Price { get; set; }
+
         [Required]
         public decimal SellingPrice  { get; set; }
         [Required]

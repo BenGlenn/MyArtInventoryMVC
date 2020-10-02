@@ -13,7 +13,7 @@
     @Html.ActionLink("See All Un-Sold Art", "ListUnSoldArt")
 </p>
 <p>
-    @Html.ActionLink("Total Sales", "GetTotalSales")
+    @Html.ActionLink("Total Sales", "Index", "Sale")
 </p>
 
 
@@ -62,7 +62,8 @@
                 @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID })|
                 @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID }) |
+              
 
             </td>
         </tr>

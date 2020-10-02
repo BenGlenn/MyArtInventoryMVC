@@ -28,14 +28,21 @@ namespace MyArtInventoryMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var artService = new ArtService(userId);
+
             var clientService = new ClientService(userId);
+
+            //var priceGet = new ArtService(userId);
+            //var truePrice = priceGet.GetArt();
+
             var clientID = clientService.GetClient();
             var artID = artService.GetUnSoldArt();
-          
             var art = new SelectList( artID, "ArtID", "Title");
             ViewBag.Arts = art;
             var client = new SelectList( clientID, "ClientID", "FullName");
             ViewBag.Clients = client;
+
+            //var price = new SelectList(truePrice, "Price");
+            //ViewBag.Clients = price;
 
             return View();
            
@@ -88,7 +95,7 @@ namespace MyArtInventoryMVC.Controllers
                    //ArtID = detail.ArtID,
                    //ClientID = detail.ClientID,
                    Location = detail.Location,
-                   ValuedAt = detail.ValuedAt,
+                   Price = detail.Price,
                    SellingPrice = detail.SellingPrice,
                    VenderCommission = detail.VenderCommission,
                    DateOfTransaction = detail.DateOfTransaction,

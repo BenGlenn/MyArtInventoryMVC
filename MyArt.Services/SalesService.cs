@@ -31,8 +31,8 @@ namespace MyArt.Services
 
                     ArtID = model.ArtID,
                     ClientID = model.ClientID,
+                    Price = model.Price,
                     Location = model.Location,
-                    ValuedAt = model.ValuedAt,
                     SellingPrice = model.SellingPrice,
                     VenderCommission = model.VenderCommission,
                     DateOfTransaction = model.DateOfTransaction,
@@ -135,7 +135,7 @@ namespace MyArt.Services
                                     ArtID = e.ArtID,
                                     ClientID = e.ClientID,
                                     Location = e.Location,
-                                    ValuedAt = e.ValuedAt,
+                                    Price = e.Price,
                                     SellingPrice = e.SellingPrice,
                                     VenderCommission = e.VenderCommission,
                                     DateOfTansaction = e.DateOfTransaction,
@@ -166,7 +166,7 @@ namespace MyArt.Services
                         FullName = entity.Client.FullName,
                         Title = entity.Art.Title,
                         Location = entity.Location,
-                        ValuedAt = entity.ValuedAt,
+                        Price = entity.Price,
                         SellingPrice = entity.SellingPrice,
                         VenderCommission = entity.VenderCommission,
                         DateOfTransaction = entity.DateOfTransaction,
@@ -186,7 +186,7 @@ namespace MyArt.Services
                 //entity.ArtID = model.ArtID;
                 //entity.ClientID = model.ClientID;
                 entity.Location = model.Location;
-                entity.ValuedAt = model.ValuedAt;
+                entity.Price = model.Price;
                 entity.SellingPrice = model.SellingPrice;
                 entity.VenderCommission = model.VenderCommission;
                 entity.DateOfTransaction = model.DateOfTransaction;

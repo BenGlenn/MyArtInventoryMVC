@@ -23,8 +23,8 @@ namespace MyArt.Model
 
         [Required]
         [Display(Name = "Art Value")]
-        public decimal ValuedAt { get; set; }
-
+        public decimal Price { get; set; }
+        
         [Required]
         [Display(Name = "Selling Price")]
         public decimal SellingPrice { get; set; }
@@ -45,7 +45,7 @@ namespace MyArt.Model
         public int ArtID { get; set; }
         public int ClientID { get; set; }
         public string Location { get; set; }
-        public decimal ValuedAt { get; set; }
+        public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal VenderCommission { get; set; }
         public DateTime DateOfTansaction { get; set; }
@@ -61,7 +61,7 @@ namespace MyArt.Model
         public string FullName { get; set; }
         public string Title { get; set; }
         public string Location { get; set; }
-        public decimal ValuedAt { get; set; }
+        public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal VenderCommission { get; set; }
         public DateTime DateOfTransaction { get; set; }
@@ -73,7 +73,7 @@ namespace MyArt.Model
         //public int ArtID { get; set; }
         //public int ClientID { get; set; }
         public string Location { get; set; }
-        public decimal ValuedAt { get; set; }
+        public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal VenderCommission { get; set; }
         public DateTime DateOfTransaction { get; set; }

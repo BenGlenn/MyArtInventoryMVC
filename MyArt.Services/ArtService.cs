@@ -67,30 +67,31 @@ namespace MyArt.Services
                 return query.ToArray();
             }
         }
+        // I set the view to the Sale Index view gives total... Didn't need this anymore//////
 
-        public IEnumerable<ArtListItem> GetSoldArt()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Arts
-                        .Where(e => e.OwnerID == _userId && e.Sold == true)
-                        .Select(
-                            e =>
-                                new ArtListItem
-                                {
-                                    ArtID = e.ArtID,
-                                    Title = e.Title,
-                                    Price = e.Price,
-                                    DateOfCreation = e.DateOfCreation,
+        //public IEnumerable<ArtListItem> GetSoldArt()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Arts
+        //                .Where(e => e.OwnerID == _userId && e.Sold == true)
+        //                .Select(
+        //                    e =>
+        //                        new ArtListItem
+        //                        {
+        //                            ArtID = e.ArtID,
+        //                            Title = e.Title,
+        //                            Price = e.Price,
+        //                            DateOfCreation = e.DateOfCreation,
 
-                                }
-                        );
+        //                        }
+        //                );
 
-                return query.ToArray();
-            }
-        }
+        //        return query.ToArray();
+        //    }
+        //}
 
 
 
@@ -144,6 +145,8 @@ namespace MyArt.Services
             }
         }
 
+      
+
         //public bool SoldArtTrue(int id)
         //{
         //    using (var ctx = new ApplicationDbContext())
@@ -153,7 +156,7 @@ namespace MyArt.Services
         //                .Arts
         //                .Single(e => e.ArtID == id && e.OwnerID == _userId);
         //        return entity.Sold = true;
-                   
+
         //    }
         //}
 
