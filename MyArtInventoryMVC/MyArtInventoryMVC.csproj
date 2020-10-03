@@ -182,19 +182,24 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\asset\1.png" />
+    <Content Include="Content\asset\2.png" />
+    <Content Include="Content\asset\3.png" />
+    <Content Include="Content\asset\4.png" />
+    <Content Include="Content\asset\5.png" />
     <Content Include="Content\asset\6.png" />
+    <Content Include="Content\asset\7.png" />
+    <Content Include="Content\asset\8.png" />
+    <Content Include="Content\asset\Art.png" />
+    <Content Include="Content\asset\Art2.png" />
     <Content Include="Content\asset\BlackWhiteJumbo.png" />
-    <Content Include="Content\asset\BW-1.png" />
-    <Content Include="Content\asset\BW-2.png" />
-    <Content Include="Content\asset\BW-3.png" />
-    <Content Include="Content\asset\BW-4.png" />
-    <Content Include="Content\asset\BW-5.png" />
     <Content Include="Content\asset\Jumbo_1.png" />
     <Content Include="Content\asset\Jumbo_2.png" />
     <Content Include="Content\asset\Jumbo_3.png" />
     <Content Include="Content\asset\Jumbo_4.png" />
     <Content Include="Content\asset\Jumbo_5.png" />
     <Content Include="Content\asset\Jumbo_6.png" />
+    <Content Include="Content\asset\Speaking2.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

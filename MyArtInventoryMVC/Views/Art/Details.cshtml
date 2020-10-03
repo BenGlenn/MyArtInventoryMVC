@@ -4,103 +4,155 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<br />
+<div class="jumbotronArtDetails">
 
-<div>
-    <h4>ArtDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Sold)
-        </dt>
+    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-warning btn-md" })
 
-        <dd>
-            @Html.DisplayFor(model => model.Sold)
-        </dd>
+            @*@Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+        @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ArtID)
-        </dt>
+            @if (Model.Sold == false)
+            {
+                @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
 
-        <dd>
-            @Html.DisplayFor(model => model.ArtID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfCreation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfCreation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Style)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Style)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Medium)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Medium)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surface)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surface)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Size)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Size)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Note)
-        </dd>
-
-    </dl>
+            }
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="container">
+
+    <br />
+    <div class="row">
+        <hr />
+        @*<div class="col-md-3">
+
+            </div>*@
+    <div class="col-md-2">
+        <br />
+        <br />
+        <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
+        <br />
+        <br />
+        @Html.ActionLink("Back", "Index") |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
+
+        @if (Model.Sold == false)
+        {
+        @Html.ActionLink("Sell", "Create", "Sale")
+
+        }
+
+
+
+    </div>
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+
+                <br />
+                <br />
+                @if (Model.Sold == true)
+                {
+                   
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sold)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sold)
+                </dd>
+                }
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ArtID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ArtID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOfCreation)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateOfCreation)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Style)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Style)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Medium)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Medium)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Surface)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Surface)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Size)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Size)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-5">
+            <h2> STORY</h2>
+                @*@Html.DisplayNameFor(model => model.Note)*@
+           
+                @Html.DisplayFor(model => model.Note)
+
+        </div>
+    </div>
+</div>
+
