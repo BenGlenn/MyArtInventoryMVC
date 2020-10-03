@@ -97,6 +97,7 @@ namespace MyArtInventoryMVC.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ArtEdit model)
@@ -120,6 +121,49 @@ namespace MyArtInventoryMVC.Controllers
             ModelState.AddModelError("", "Your Art Was Not UPDATED.");
             return View(model);
         }
+
+        public ActionResult StoryEdit(int id)
+        {
+            var service = CreateArtService();
+            var detail = service.GetArtById(id);
+            var model =
+                new StoryEdit
+                {
+                    ArtID = detail.ArtID,
+                    Title = detail.Title,
+                    Note = detail.Note,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StoryEdit(int id, StoryEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ArtID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateArtService();
+
+            if (service.UpdateStory(model))
+            {
+                TempData["SaveResult"] = "Your Art Information Was Updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Art Was Not UPDATED.");
+            return View(model);
+        }
+
+
+
+
+
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)

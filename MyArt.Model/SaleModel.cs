@@ -12,9 +12,11 @@ namespace MyArt.Model
     {
       
         [Required]
-        public int ArtID { get; set; }
+        [Display(Name = "Select Art")]
+        public int ArtID { get;  set; }
 
         [Required]
+        [Display(Name = "Select Client")]
         public int ClientID { get; set; }
 
         [Required]

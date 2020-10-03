@@ -65,15 +65,47 @@ namespace MyArt.Services
                 }
             }
 
-            //REFACTOR I TRIED... 
-            //using (var ctx = new ApplicationDbContext())
-            //{
-            //    ctx.Sales.Add(entity);
-            //    //   entity.Art.Sold = true;
-            //    _ = ctx.SaveChanges() == 1;
-            //    entity.Art.Sold = true;
-            //    return ctx.SaveChanges() == 1;
-            //}
+
+        //public bool CreateSaleFromArt(SaleCreate model)
+        //{
+
+
+        //    var entity =
+        //        new Sale()
+        //        {
+        //            OwnerID = _userId,
+
+        //            ArtID = model.ArtID,
+        //            ClientID = model.ClientID,
+        //            Price = model.Price,
+        //            Location = model.Location,
+        //            SellingPrice = model.SellingPrice,
+        //            VenderCommission = model.VenderCommission,
+        //            DateOfTransaction = model.DateOfTransaction,
+
+        //        };
+
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+
+        //        ctx.Sales.Add(entity);
+        //        var id = entity.ArtID;
+        //        SoldArtTrue(id);
+        //        return ctx.SaveChanges() == 1;
+
+        //    }
+
+        //}
+
+        //REFACTOR I TRIED... 
+        //using (var ctx = new ApplicationDbContext())
+        //{
+        //    ctx.Sales.Add(entity);
+        //    //   entity.Art.Sold = true;
+        //    _ = ctx.SaveChanges() == 1;
+        //    entity.Art.Sold = true;
+        //    return ctx.SaveChanges() == 1;
+        //}
 
         //ANOTHER ATTEMPT AT SOLD = TRUE
         //public bool MarkArtAsSold()
@@ -195,6 +227,7 @@ namespace MyArt.Services
 
             }
         }
+
 
         public bool DeleteSale(int saleId)
         {

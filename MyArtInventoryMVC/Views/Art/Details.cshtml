@@ -36,19 +36,21 @@
         @*<div class="col-md-3">
 
             </div>*@
-    <div class="col-md-2">
+    <div class="col-md-3">
         <br />
         <br />
         <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
         <br />
         <br />
+
         @Html.ActionLink("Back", "Index") |
         @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
+      
 
         @if (Model.Sold == false)
         {
-        @Html.ActionLink("Sell", "Create", "Sale")
+            @Html.ActionLink("Sell", "Create", "Sale")
 
         }
 

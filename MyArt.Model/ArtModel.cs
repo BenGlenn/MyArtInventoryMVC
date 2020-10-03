@@ -33,7 +33,7 @@ namespace MyArt.Model
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Creation")]
         public DateTime DateOfCreation { get; set; }
-
+        [Display(Name = "Story")]
         public string Note { get; set; }
 
     }
@@ -71,13 +71,13 @@ namespace MyArt.Model
         public string Location { get; set; }
 
         public bool Sold { get; set; }
-
+        [Display(Name = "Story")]
         public string Note { get; set; }
     }
 
     public class ArtNoteDetial
     {
-
+        public int ArtID { get; set; }
         public string Title { get; set; }
 
         public string Note { get; set; }
@@ -88,8 +88,6 @@ namespace MyArt.Model
         public int ArtID { get; set; }
 
         public string Title { get; set; }
-
-     
 
         public Style Style { get; set; }
 
@@ -109,7 +107,15 @@ namespace MyArt.Model
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Creation")]
         public DateTime DateOfCreation { get; set; }
+        [Display(Name = "Story")]
+        public string Note { get; set; }
+    }
 
+    public class StoryEdit
+    {
+        public int ArtID { get; set; }
+        public string Title { get; set; }
+        [Display(Name = "Story")]
         public string Note { get; set; }
     }
 

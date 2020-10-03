@@ -4,17 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<div class="jumbotronArtDetails">
 
-<p>
-           @Html.ActionLink("Create New", "Create")
-</p>
+    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-md" })
+            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
+            @Html.ActionLink("CLIENT", "Index", "Client", null, new { @class = "btn btn-warning btn-md" })
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
 <div>
 
     <h3>Total Sales @Model.Sum(i => i.SellingPrice)</h3>
 
 </div>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.SaleID)
@@ -28,7 +44,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
-      
+
         <th>
             @Html.DisplayNameFor(model => model.SellingPrice)
         </th>
@@ -56,7 +72,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
-          
+
             <td>
                 @Html.DisplayFor(modelItem => item.SellingPrice)
             </td>

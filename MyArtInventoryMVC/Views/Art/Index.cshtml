@@ -13,7 +13,7 @@
         <br />
         <br />
         <div>
-            @Html.ActionLink("ADD ART", "Create", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+            @Html.ActionLink("ADD ART", "Create", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
             @Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
             @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
             @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
@@ -67,11 +67,12 @@
 
 
             <td>
-             
+
                 @* @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |*@
                 @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
                 @Html.ActionLink("Story", "NoteDetails", new { id = item.ArtID })
                 @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
+                @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)
 
 
             </td>
