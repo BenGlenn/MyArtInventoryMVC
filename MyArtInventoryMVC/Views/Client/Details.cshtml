@@ -3,13 +3,47 @@
 @{
     ViewBag.Title = "Details";
 }
+<br />
+<div class="jumbotronArtDetails">
 
-<h2>Details</h2>
+    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-warning btn-md" })
+
+            @*@Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+                @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })*@
+
+          
+        </div>
+    </div>
+</div>
 
 <div>
-    <h4>ClientDetail</h4>
+  
+    <br />
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.ClientID)
         </dt>
@@ -26,21 +60,6 @@
             @Html.DisplayFor(model => model.Collector)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
@@ -84,10 +103,13 @@
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
+        <br />  
+        <dt>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ClientID })
+        </dt>
+        <br />
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

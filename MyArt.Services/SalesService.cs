@@ -163,9 +163,11 @@ namespace MyArt.Services
                             e =>
                                 new SaleListItem
                                 {
+                                    Title = e.Art.Title,
                                     SaleID = e.SaleID,
                                     ArtID = e.ArtID,
                                     ClientID = e.ClientID,
+                                 
                                     Location = e.Location,
                                     Price = e.Price,
                                     SellingPrice = e.SellingPrice,

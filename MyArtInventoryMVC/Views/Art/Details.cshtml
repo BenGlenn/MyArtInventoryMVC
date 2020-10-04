@@ -33,46 +33,43 @@
     <br />
     <div class="row">
         <hr />
-        @*<div class="col-md-3">
+        @*<div class="col-md-1">
 
-            </div>*@
-    <div class="col-md-3">
-        <br />
-        <br />
-        <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
-        <br />
-        <br />
+        </div>*@
+        @*<div class="col-md-2">
+            <br />
+            <br />
+            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
+            <br />
+            <br />
 
-        @Html.ActionLink("Back", "Index") |
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
-      
-
-        @if (Model.Sold == false)
-        {
-            @Html.ActionLink("Sell", "Create", "Sale")
-
-        }
+            @Html.ActionLink("Back", "Index") |
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
 
 
+            @if (Model.Sold == false)
+            {
+                @Html.ActionLink("Sell", "Create", "Sale")
 
-    </div>
+            }
+        </div>*@
         <div class="col-md-4">
             <dl class="dl-horizontal">
 
                 <br />
                 <br />
-                @if (Model.Sold == true)
+                @*@if (Model.Sold == true)
                 {
-                   
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Sold)
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Sold)
-                </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Sold)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Sold)
+                    </dd>
                 }
 
                 <dt>
@@ -81,7 +78,7 @@
 
                 <dd>
                     @Html.DisplayFor(model => model.ArtID)
-                </dd>
+                </dd>*@
 
                 <dt>
                     @Html.DisplayNameFor(model => model.Title)
@@ -148,13 +145,50 @@
                 </dd>
             </dl>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
+            <br />
+            <br />
+            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
+            <br />
+            <br />
+
+            @Html.ActionLink("Back", "Index") |
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
+
+
+            @if (Model.Sold == false)
+            {
+                @Html.ActionLink("Sell", "Create", "Sale")
+
+            }
+        </div>
+        <div class="col-md-4">
             <h2> STORY</h2>
-                @*@Html.DisplayNameFor(model => model.Note)*@
-           
-                @Html.DisplayFor(model => model.Note)
+            @*@Html.DisplayNameFor(model => model.Note)*@
+
+            @Html.DisplayFor(model => model.Note)
 
         </div>
+        @*<div class="col-md-2">
+            <br />
+            <br />
+            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
+            <br />
+            <br />
+
+            @Html.ActionLink("Back", "Index") |
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
+
+
+            @if (Model.Sold == false)
+            {
+                @Html.ActionLink("Sell", "Create", "Sale")
+
+            }
+        </div>*@
+
     </div>
 </div>
 

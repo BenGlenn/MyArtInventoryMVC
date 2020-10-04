@@ -36,13 +36,7 @@
             @Html.DisplayNameFor(model => model.SaleID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ArtID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
 
         <th>
@@ -52,6 +46,9 @@
             @Html.DisplayNameFor(model => model.VenderCommission)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateOfTansaction)
         </th>
         <th></th>
@@ -59,35 +56,32 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SaleID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArtID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SaleID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.SellingPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenderCommission)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfTansaction)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SaleID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SaleID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
-            </td>
-        </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SellingPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VenderCommission)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfTansaction)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SaleID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SaleID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
+    </td>
+</tr>
     }
 
 </table>

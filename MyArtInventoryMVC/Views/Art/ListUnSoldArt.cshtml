@@ -4,9 +4,26 @@
     ViewBag.Title = "Un-Sold Art";
 }
 
-<h2>ListUnSoldArt</h2>
-@Html.ActionLink("Back to List", "Index")
-<table class="table">
+<br />
+<div class="jumbotronArt">
+
+
+    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+            @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+            @Html.ActionLink("ADD ART", "Create", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+        </div>
+    </div>
+</div>
+<h2> AVALIABLE ART</h2>
+
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ArtID)
@@ -45,11 +62,16 @@
                 @Html.DisplayFor(modelItem => item.Sold)
             </td>
             <td>
-                @Html.ActionLink("Notes", "NoteDetails", new { id = item.ArtID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+
                 @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArtID }) |
-                @Html.ActionLink("Buy", "Create", "Sale")
+                @Html.ActionLink("Story", "StoryEdit", new { id = item.ArtID })|
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+
+                @if (item.Sold == false)
+                {
+                    @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-sm" })
+
+                }
 
             </td>
         </tr>

@@ -23,9 +23,10 @@ namespace MyArt.Model
         [Required]
         public decimal Price { get; set; }
         [Required]
-        [Display(Name = "Where is this piece located?")]
+        [Display(Name = "Art Location")]
         public string Location { get; set; }
         [Required]
+        [Display(Name = "Mark Sold")]
         public bool Sold { get; set; }
 
         [Required]
