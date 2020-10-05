@@ -50,6 +50,33 @@ textarea {
 }
 
 
+.jumbotronArtEdit {
+    background-image: url("asset/8.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+.jumbotronArtCreate {
+    background-image: url("asset/1.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+
 
 .addSale {
     /*    align-content: center;*/

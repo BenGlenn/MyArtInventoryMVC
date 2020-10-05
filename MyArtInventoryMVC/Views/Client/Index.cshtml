@@ -56,9 +56,10 @@
         @Html.DisplayFor(modelItem => item.Collector)
     </td>
     <td>
-      
-        @Html.ActionLink("Details", "Details", new { id = item.ClientID }) 
-       
+
+        @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+        @Html.ActionLink("Edit", "Edit", new { id = item.ClientID })
+
     </td>
 </tr>
     }
