@@ -43,6 +43,11 @@ namespace MyArt.Services
             }
         }
 
+
+
+
+
+
         public IEnumerable<ArtListItem> GetArt()
         {
             using (var ctx = new ApplicationDbContext())
@@ -67,30 +72,31 @@ namespace MyArt.Services
                 return query.ToArray();
             }
         }
+        // I set the view to the Sale Index view gives total... Didn't need this anymore//////
 
-        public IEnumerable<ArtListItem> GetSoldArt()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Arts
-                        .Where(e => e.OwnerID == _userId && e.Sold == true)
-                        .Select(
-                            e =>
-                                new ArtListItem
-                                {
-                                    ArtID = e.ArtID,
-                                    Title = e.Title,
-                                    Price = e.Price,
-                                    DateOfCreation = e.DateOfCreation,
+        //public IEnumerable<ArtListItem> GetSoldArt()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Arts
+        //                .Where(e => e.OwnerID == _userId && e.Sold == true)
+        //                .Select(
+        //                    e =>
+        //                        new ArtListItem
+        //                        {
+        //                            ArtID = e.ArtID,
+        //                            Title = e.Title,
+        //                            Price = e.Price,
+        //                            DateOfCreation = e.DateOfCreation,
 
-                                }
-                        );
+        //                        }
+        //                );
 
-                return query.ToArray();
-            }
-        }
+        //        return query.ToArray();
+        //    }
+        //}
 
 
 
@@ -144,6 +150,8 @@ namespace MyArt.Services
             }
         }
 
+      
+
         //public bool SoldArtTrue(int id)
         //{
         //    using (var ctx = new ApplicationDbContext())
@@ -153,7 +161,7 @@ namespace MyArt.Services
         //                .Arts
         //                .Single(e => e.ArtID == id && e.OwnerID == _userId);
         //        return entity.Sold = true;
-                   
+
         //    }
         //}
 
@@ -169,6 +177,7 @@ namespace MyArt.Services
             return
                 new ArtNoteDetial
                 {
+                    ArtID = entity.ArtID,
                     Title = entity.Title,
                     Note = entity.Note,
                 };
@@ -194,6 +203,23 @@ namespace MyArt.Services
                 entity.Location = model.Location;
                 entity.Sold = model.Sold;
                 entity.DateOfCreation = model.DateOfCreation;
+                entity.Note = model.Note;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+
+        public bool UpdateStory(StoryEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Arts
+                        .Single(e => e.ArtID == model.ArtID && e.OwnerID == _userId);
+                entity.ArtID = model.ArtID;
+                entity.Title = model.Title;
                 entity.Note = model.Note;
 
                 return ctx.SaveChanges() == 1;

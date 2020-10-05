@@ -26,16 +26,26 @@ namespace MyArtInventoryMVC.Controllers
         }
         public ActionResult Create()
         {
+            //VIEW BAG CODE//////
             var userId = Guid.Parse(User.Identity.GetUserId());
             var artService = new ArtService(userId);
+
             var clientService = new ClientService(userId);
+
             var clientID = clientService.GetClient();
             var artID = artService.GetUnSoldArt();
-          
-            var art = new SelectList( artID, "ArtID", "Title");
+            var art = new SelectList(artID, "ArtID", "Title");
             ViewBag.Arts = art;
-            var client = new SelectList( clientID, "ClientID", "FullName");
+            var client = new SelectList(clientID, "ClientID", "FullName");
             ViewBag.Clients = client;
+            /// VIEW BAG CODE ENDS////
+
+
+            //var priceGet = new ArtService(userId);
+            //var truePrice = priceGet.GetArt();
+
+            //var price = new SelectList(truePrice, "Price");
+            //ViewBag.Clients = price;
 
             return View();
            
@@ -49,8 +59,56 @@ namespace MyArtInventoryMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateSaleService();
-            
 
+
+            if (service.CreateSale(model))
+            {
+
+                TempData["SaveResult"] = "Your Sale was added.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Sale could not be added.");
+            return View(model);
+        }
+   
+        public ActionResult CreateFromArt()
+        {
+            //VIEW BAG CODE//////
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            //var artService = new ArtService(userId);
+
+            var clientService = new ClientService(userId);
+
+            var clientID = clientService.GetClient();
+            //var artID = artService.GetUnSoldArt();
+            //var art = new SelectList(artID, "ArtID", "Title");
+            //ViewBag.Arts = art;
+            var client = new SelectList(clientID, "ClientID", "FullName");
+            ViewBag.Clients = client;
+            /// VIEW BAG CODE ENDS////
+
+
+            //var priceGet = new ArtService(userId);
+            //var truePrice = priceGet.GetArt();
+
+            //var price = new SelectList(truePrice, "Price");
+            //ViewBag.Clients = price;
+
+            return View();
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFromArt(SaleCreate model)
+        {
+
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateSaleService();
+            
+               
             if (service.CreateSale(model))
             {
                
@@ -61,6 +119,8 @@ namespace MyArtInventoryMVC.Controllers
             ModelState.AddModelError("", "Sale could not be added.");
             return View(model);
         }
+
+
         public ActionResult Details(int id)
         {
             var svc = CreateSaleService();
@@ -88,7 +148,7 @@ namespace MyArtInventoryMVC.Controllers
                    //ArtID = detail.ArtID,
                    //ClientID = detail.ClientID,
                    Location = detail.Location,
-                   ValuedAt = detail.ValuedAt,
+                   Price = detail.Price,
                    SellingPrice = detail.SellingPrice,
                    VenderCommission = detail.VenderCommission,
                    DateOfTransaction = detail.DateOfTransaction,

@@ -4,38 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<div class="jumbotronArtDetails">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <div class="container text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-md" })
+            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
+            @Html.ActionLink("CLIENT", "Index", "Client", null, new { @class = "btn btn-warning btn-md" })
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
 <div>
 
     <h3>Total Sales @Model.Sum(i => i.SellingPrice)</h3>
 
 </div>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.SaleID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ArtID)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValuedAt)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.SellingPrice)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.VenderCommission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateOfTansaction)
@@ -45,37 +56,32 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SaleID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArtID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValuedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellingPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenderCommission)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfTansaction)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SaleID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SaleID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SaleID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.SellingPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VenderCommission)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfTansaction)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SaleID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SaleID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
+    </td>
+</tr>
     }
 
 </table>

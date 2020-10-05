@@ -2,19 +2,56 @@
     ViewBag.Title = "MY ART INVENTORY";
 }
 
-    <div class="jumbotron">
-        <h1>My Art Inventory</h1>
-        <p class="lead">My Art Inventory will help you keep track of all your art creations as well as track your sales, collectors, and art stories.</p>
-        @Html.ActionLink("ART INVENTORY", "Index", "Art", null, new { @class = "btn btn-primary btn-large" })
-        @Html.ActionLink("Client List", "Index", "Client", null, new { @class = "btn btn-primary btn-large" })
-        @Html.ActionLink("Sales", "SaleDirection", "Sale", null, new { @class = "btn btn-primary btn-large" })
+
+
+<div class="jumbotron">
+
+    <div class="container text-center">
+        <h1 style="color:antiquewhite">My Art Inventory</h1>
+        @Html.ActionLink("VIEW COLLECTION", "Index", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+
+
+
     </div>
 
-<div class="row">
-    <div class="col-md-4">
+
+</div>
+@* <p class="lead">My Art Inventory will help you keep track of all your art creations as well as track your sales, collectors, and art stories.</p>*@
+
+@*@Html.ActionLink("Client List", "Index", "Client", null, new { @class = "btn btn-primary btn-large ml-3"  })
+    @Html.ActionLink("Sales", "SaleDirection", "Sale", null, new { @class = "btn btn-primary btn-large mr-3" })*@
+</div>
+
+@*<div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+        @Html.Partial("_LoginPartial")
+    </div>*@
+
+@*<div class="row">
+        <div class="col-md-4">
         <h2>Coming Soon!</h2>
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="view overlay rounded z-depth-1">
+                <img src="~/Content/asset/6.png" class="img-fluid" alt="Sample project image">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+                <h4 class="font-weight-bold mt-1 mb-3">Blue Badge FinalProject</h4>
+                <p class="text-muted">Overview: The assignment was to build a .NET Framework API Web Application using n-tier architecture covering a topic of my teams choosing..</p>
+                <p><a class="btn btn-sm btn-secondary" href="https://github.com/jdevine103/RapidRecipeRecall" target="blank" role="button">VIEW PROJECT</a></p>
+            </div>
+
+        </div>
         <div class="col-md-5 order-md-1 ">
             <img id="radius" href="#" src="~/Content/Assests/1.png" width="400 " height="400 ">
         </div>
-    </div> 
-</div>
+
+    </div>*@

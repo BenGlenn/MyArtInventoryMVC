@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+  
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,75 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.jumbotronArt {
+    background-image: url("asset/4.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+.jumbotronArtDetails {
+    background-image: url("asset/7.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+
+.jumbotronArtEdit {
+    background-image: url("asset/8.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+.jumbotronArtCreate {
+    background-image: url("asset/1.png");
+    height: 110px;
+    /*    opacity: .8;*/
+    /*   background-color: #17234E;
+     margin-bottom: 0;`enter code here`
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover; */
+}
+
+
+
+.addSale {
+    /*    align-content: center;*/
+/*    margin: 100px 100px 100px 100px;*/
+    background-color: #44c767;
+    border-radius: 28px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
 }

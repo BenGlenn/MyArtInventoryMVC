@@ -79,6 +79,15 @@ namespace MyArtInventoryMVC.Controllers
                     Collector = detail.Collector,
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
+                    Email = detail.Email,
+                    PhoneNumber = detail.PhoneNumber,
+                    Address = detail.Address,
+                    City = detail.City,
+                    State = detail.State,
+                    ZipCode = detail.ZipCode,
+
+
+
                 };
             return View(model);
         }

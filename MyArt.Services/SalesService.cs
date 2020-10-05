@@ -31,8 +31,8 @@ namespace MyArt.Services
 
                     ArtID = model.ArtID,
                     ClientID = model.ClientID,
+                    Price = model.Price,
                     Location = model.Location,
-                    ValuedAt = model.ValuedAt,
                     SellingPrice = model.SellingPrice,
                     VenderCommission = model.VenderCommission,
                     DateOfTransaction = model.DateOfTransaction,
@@ -65,15 +65,47 @@ namespace MyArt.Services
                 }
             }
 
-            //REFACTOR I TRIED... 
-            //using (var ctx = new ApplicationDbContext())
-            //{
-            //    ctx.Sales.Add(entity);
-            //    //   entity.Art.Sold = true;
-            //    _ = ctx.SaveChanges() == 1;
-            //    entity.Art.Sold = true;
-            //    return ctx.SaveChanges() == 1;
-            //}
+
+        //public bool CreateSaleFromArt(SaleCreate model)
+        //{
+
+
+        //    var entity =
+        //        new Sale()
+        //        {
+        //            OwnerID = _userId,
+
+        //            ArtID = model.ArtID,
+        //            ClientID = model.ClientID,
+        //            Price = model.Price,
+        //            Location = model.Location,
+        //            SellingPrice = model.SellingPrice,
+        //            VenderCommission = model.VenderCommission,
+        //            DateOfTransaction = model.DateOfTransaction,
+
+        //        };
+
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+
+        //        ctx.Sales.Add(entity);
+        //        var id = entity.ArtID;
+        //        SoldArtTrue(id);
+        //        return ctx.SaveChanges() == 1;
+
+        //    }
+
+        //}
+
+        //REFACTOR I TRIED... 
+        //using (var ctx = new ApplicationDbContext())
+        //{
+        //    ctx.Sales.Add(entity);
+        //    //   entity.Art.Sold = true;
+        //    _ = ctx.SaveChanges() == 1;
+        //    entity.Art.Sold = true;
+        //    return ctx.SaveChanges() == 1;
+        //}
 
         //ANOTHER ATTEMPT AT SOLD = TRUE
         //public bool MarkArtAsSold()
@@ -131,11 +163,13 @@ namespace MyArt.Services
                             e =>
                                 new SaleListItem
                                 {
+                                    Title = e.Art.Title,
                                     SaleID = e.SaleID,
                                     ArtID = e.ArtID,
                                     ClientID = e.ClientID,
+                                 
                                     Location = e.Location,
-                                    ValuedAt = e.ValuedAt,
+                                    Price = e.Price,
                                     SellingPrice = e.SellingPrice,
                                     VenderCommission = e.VenderCommission,
                                     DateOfTansaction = e.DateOfTransaction,
@@ -166,7 +200,7 @@ namespace MyArt.Services
                         FullName = entity.Client.FullName,
                         Title = entity.Art.Title,
                         Location = entity.Location,
-                        ValuedAt = entity.ValuedAt,
+                        Price = entity.Price,
                         SellingPrice = entity.SellingPrice,
                         VenderCommission = entity.VenderCommission,
                         DateOfTransaction = entity.DateOfTransaction,
@@ -186,7 +220,7 @@ namespace MyArt.Services
                 //entity.ArtID = model.ArtID;
                 //entity.ClientID = model.ClientID;
                 entity.Location = model.Location;
-                entity.ValuedAt = model.ValuedAt;
+                entity.Price = model.Price;
                 entity.SellingPrice = model.SellingPrice;
                 entity.VenderCommission = model.VenderCommission;
                 entity.DateOfTransaction = model.DateOfTransaction;
@@ -195,6 +229,7 @@ namespace MyArt.Services
 
             }
         }
+
 
         public bool DeleteSale(int saleId)
         {
