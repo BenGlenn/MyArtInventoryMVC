@@ -3,9 +3,11 @@ using MyArt.Model;
 using MyArtInventoryMVC.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MyArt.Services
 {
@@ -18,8 +20,11 @@ namespace MyArt.Services
             _userId = userId;
         }
 
-        public bool CreateArt(ArtCreate model)
+        public bool CreateArt(HttpPostedFileBase file, ArtCreate model)
         {
+
+            model.ImageContent = ConvertToBytes(file);
+
             var entity =
                 new Art()
                 {
@@ -34,6 +39,7 @@ namespace MyArt.Services
                     Sold = model.Sold,
                     DateOfCreation = model.DateOfCreation,
                     Note = model.Note,
+                    ImageContent = model.ImageContent
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -43,7 +49,13 @@ namespace MyArt.Services
             }
         }
 
-
+        public byte[] ConvertToBytes(HttpPostedFileBase image)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(image.InputStream);
+            imageBytes = reader.ReadBytes((int)image.ContentLength);
+            return imageBytes;
+        }
 
 
 

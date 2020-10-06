@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MyArt.Model
 {
@@ -37,10 +38,13 @@ namespace MyArt.Model
         [Display(Name = "Story")]
         public string Note { get; set; }
 
+        //public HttpPostedFileBase ImageContent { get; set; }
+        public byte[] ImageContent { get; set; }
     }
 
     public class ArtListItem
     {
+        public  byte[] ImageContent { get; set; }
         public int ArtID { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }

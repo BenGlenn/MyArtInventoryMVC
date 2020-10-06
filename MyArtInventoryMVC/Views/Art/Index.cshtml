@@ -25,6 +25,12 @@
 
 
 
+
+
+
+
+
+
 <h2> ART INVENTORY</h2>
 <table class="table table-bordered table-hover">
     <tr>
@@ -48,46 +54,65 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArtID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfCreation)
-            </td>
-            <th>
-                @Html.DisplayFor(model => item.Sold)
-            </th>
 
+     
 
-            <td>
+            <div class="card-body">
 
-                @*{
-        @Html.ActionLink("SELL", "Create", "Sale", null)
-
-        }*@
-                @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Add Story", "StoryEdit", new { id = item.ArtID })|
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
-             
-                @if (item.Sold == false)
+                @if (item.ImageContent != null)
                 {
-                    @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-sm" })
-
+                    var base64 = Convert.ToBase64String(item.ImageContent); var imgSrc = String.Format("data:image/gif;base64,{0}", base64);<img src=@imgSrc , class="Postimg" />
                 }
+                else
+                {
+                    <img src="" />
+                }
+                <p class="card-text"> @Html.DisplayFor(modelItem => item.ImageContent)</p>
+            
 
-                @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
-                @* @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)*@
+              
+            </div>
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfCreation)
+                </td>
+                <th>
+                    @Html.DisplayFor(model => item.Sold)
+                </th>
 
 
-            </td>
-        </tr>
-    }
+                <td>
 
-</table>
+                    @*{
+                        @Html.ActionLink("SELL", "Create", "Sale", null)
+
+                        }*@
+                    @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
+                    @Html.ActionLink("Add Story", "StoryEdit", new { id = item.ArtID })|
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
+
+                    @if (item.Sold == false)
+                    {
+                        @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-sm" })
+
+                    }
+
+                    @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
+                    @* @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)*@
+
+
+                </td>
+            </tr>
+            }
+
+        </table>

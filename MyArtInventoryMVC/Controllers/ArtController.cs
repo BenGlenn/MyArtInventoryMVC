@@ -41,16 +41,38 @@ namespace MyArtInventoryMVC.Controllers
         //    var model = service.GetSoldArt();
         //    return View(model);
         //}
+        //public ActionResult RetrieveImage(int id)
+        //{
+        //    byte[] cover = GetImageFromDB(id);
+        //    if (cover != null)
+        //    {
+        //        return File(cover, "image/jpg");
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+        //public byte[] GetImageFromDB(int id)
+        //{
+        //    var q = from temp in _db.Reviews where temp.ReviewID == id select temp.Image;
+        //    byte[] cover = q.First();
+        //    return cover;
+        //}
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArtCreate model)
         {
+            HttpPostedFileBase file = Request.Files["ImageData"];
+
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateArtService();
 
-            if (service.CreateArt(model))
+            if (service.CreateArt(file, model))
             {
                 TempData["SaveResult"] = "Your Art was added to your inventory.";
                 return RedirectToAction("Index");
