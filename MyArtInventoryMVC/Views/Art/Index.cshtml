@@ -35,6 +35,9 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ImageContent)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ArtID)
         </th>
         <th>
@@ -55,24 +58,12 @@
     @foreach (var item in Model)
     {
 
-     
-
-            <div class="card-body">
-
-                @if (item.ImageContent != null)
-                {
-                    var base64 = Convert.ToBase64String(item.ImageContent); var imgSrc = String.Format("data:image/gif;base64,{0}", base64);<img src=@imgSrc , class="Postimg" />
-                }
-                else
-                {
-                    <img src="" />
-                }
-                <p class="card-text"> @Html.DisplayFor(modelItem => item.ImageContent)</p>
-            
-
-              
-            </div>
+    
             <tr>
+
+                <td>
+                    <img src="/Art/RetrieveImage/@item.ArtID" alt="" height=100 width=200 />
+                </td>
 
                 <td>
                     @Html.DisplayFor(modelItem => item.ArtID)
@@ -94,9 +85,9 @@
                 <td>
 
                     @*{
-                        @Html.ActionLink("SELL", "Create", "Sale", null)
+            @Html.ActionLink("SELL", "Create", "Sale", null)
 
-                        }*@
+            }*@
                     @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
                     @Html.ActionLink("Add Story", "StoryEdit", new { id = item.ArtID })|
                     @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |

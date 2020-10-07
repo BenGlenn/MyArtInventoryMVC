@@ -33,27 +33,7 @@
     <br />
     <div class="row">
         <hr />
-        @*<div class="col-md-1">
-
-        </div>*@
-        @*<div class="col-md-2">
-            <br />
-            <br />
-            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
-            <br />
-            <br />
-
-            @Html.ActionLink("Back", "Index") |
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
-
-
-            @if (Model.Sold == false)
-            {
-                @Html.ActionLink("Sell", "Create", "Sale")
-
-            }
-        </div>*@
+       
         <div class="col-md-4">
             <dl class="dl-horizontal">
 
@@ -128,10 +108,12 @@
                 </dd>
             </dl>
         </div>
-        <div class="col-md-3">
+        
+        <div class="col-md-4">
             <br />
             <br />
-            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
+                                   @*Change Item to Model.ArtID*@
+             <img src="/Art/RetrieveImage/@Model.ArtID" alt="" height=200 width=300 />
             <br />
             <br />
 

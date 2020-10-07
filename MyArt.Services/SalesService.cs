@@ -217,7 +217,7 @@ namespace MyArt.Services
                     ctx
                         .Sales
                         .Single(e => e.SaleID == model.SaleID && e.OwnerID == _userId);
-                //entity.ArtID = model.ArtID;
+                entity.SaleID = model.SaleID;
                 //entity.ClientID = model.ClientID;
                 entity.Location = model.Location;
                 entity.Price = model.Price;

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MyArtInventoryMVC.Controllers
 {
+    [Authorize]
     public class SaleController : Controller
     {
        
@@ -144,9 +145,9 @@ namespace MyArtInventoryMVC.Controllers
             var model =
                 new SaleEdit
                 {
-                   //SaleId = detail.SaleID,
-                   //ArtID = detail.ArtID,
-                   //ClientID = detail.ClientID,
+                    SaleID = detail.SaleID,
+                    //ArtID = detail.ArtID,
+                    //ClientID = detail.ClientID,
                    Location = detail.Location,
                    Price = detail.Price,
                    SellingPrice = detail.SellingPrice,
