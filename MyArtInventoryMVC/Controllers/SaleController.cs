@@ -35,10 +35,19 @@ namespace MyArtInventoryMVC.Controllers
 
             var clientID = clientService.GetClient();
             var artID = artService.GetUnSoldArt();
+            //var art = new SelectList(artID, "ArtID", "Title");
+            //ViewBag.Arts = art;
+            //var client = new SelectList(clientID, "ClientID", "FullName");
+            //ViewBag.Clients = client;
+
             var art = new SelectList(artID, "ArtID", "Title");
             ViewBag.Arts = art;
             var client = new SelectList(clientID, "ClientID", "FullName");
             ViewBag.Clients = client;
+
+
+
+
             /// VIEW BAG CODE ENDS////
 
 

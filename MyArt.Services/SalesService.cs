@@ -28,7 +28,7 @@ namespace MyArt.Services
                 new Sale()
                 {
                     OwnerID = _userId,
-
+                  
                     ArtID = model.ArtID,
                     ClientID = model.ClientID,
                     Price = model.Price,

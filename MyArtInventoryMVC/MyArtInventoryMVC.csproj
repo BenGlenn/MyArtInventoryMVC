@@ -277,7 +277,6 @@
     <Content Include="Views\Sale\View.cshtml" />
     <Content Include="Views\Sale\SaleDirection.cshtml" />
     <Content Include="Views\Art\StoryEdit.cshtml" />
-    <Content Include="Views\Sale\CreateFromArt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

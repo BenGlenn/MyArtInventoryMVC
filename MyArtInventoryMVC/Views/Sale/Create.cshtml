@@ -6,28 +6,30 @@
 
 <br />
 <div class="jumbotronArt">
-
-    <div class="container text-center">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("AVAILABLE ART", "ListUnSoldArt", "ART", null, new { @class = "btn btn-warning btn-md" })
-            @Html.ActionLink("ADD NEW CLIENT", "Create", "Client", null, new { @class = "btn btn-warning btn-md" })
-            @Html.ActionLink("TOTAL SALES", "Index", null, new { @class = "btn btn-warning btn-md" })
-
-            @*@Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-                @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })*@
-
-
-
-        </div>
-    </div>
 </div>
 
-<h2>ART SALE</h2>
+<div>
+    <br />
+    <p>
+        @*<a href="@Url.Action( "ListUnsoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">IN STOCK</a>*@
+        <a href="@Url.Action( "ListUnSoldArt", "Art")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">AVAILABLE ART</a>
+        <a href="@Url.Action( "Create", "Client")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ADD CLIENT</a>
+        <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">TOTAL SALES</a>
+    </p>
+
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-sm-5">   </div>
+<div class="col-sm-6">
+    <h2>ART SALE</h2>
+</div>
+</div>
+
+<hr />
 <div class="row">
     <div class=" col-lg-3">  </div>
     <div class=" col-lg-9">
@@ -39,7 +41,7 @@
             <div class="form-horizontal">
 
 
-                <hr />
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.ArtID, htmlAttributes: new { @class = "control-label col-md-2" })

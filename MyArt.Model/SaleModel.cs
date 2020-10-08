@@ -19,6 +19,9 @@ namespace MyArt.Model
         [Display(Name = "Select Client")]
         public int ClientID { get; set; }
 
+ 
+      
+
         [Required]
         [Display(Name = "Where Item Sold")]
         public string Location { get; set; }
@@ -75,8 +78,8 @@ namespace MyArt.Model
     public class SaleEdit
     {
         public int SaleID { get; set; }
-        //public int ArtID { get; set; }
-        //public int ClientID { get; set; }
+        public int ArtID { get; set; }
+        public int ClientID { get; set; }
         public string Location { get; set; }
         public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }

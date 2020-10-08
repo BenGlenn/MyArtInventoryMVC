@@ -14,9 +14,16 @@
         <br />
         <br />
         <div>
-            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-md" })
+            <p>
+                @*<a href="@Url.Action( "ListUnsoldArt", "Art")" class="btn btn-lg" style=" background-color:crimson !important; color: white !important;">IN STOCK</a>*@
+                <a href="@Url.Action( "Create", "Art")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">ART</a>
+                <a href="@Url.Action( "Create", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
+                <a href="@Url.Action( "Index", "Client")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">CLIENT</a>
+            </p>
+
+            @*@Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-md" })
             @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
-            @Html.ActionLink("CLIENT", "Index", "Client", null, new { @class = "btn btn-warning btn-md" })
+            @Html.ActionLink("CLIENT", "Index", "Client", null, new { @class = "btn btn-warning btn-md" })*@
 
 
         </div>
