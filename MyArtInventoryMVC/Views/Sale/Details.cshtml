@@ -4,87 +4,98 @@
     ViewBag.Title = "Details";
 }
 <br />
-<div class="jumbotronArtDetails">
-
-    <div class="container text-center">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-warning btn-md" })
-
-         
-
-        </div>
+<div></div>
+<img src="~/Content/asset/Jumbo8.jpg" style="width:1150px; height:120px;" />
+<div class="row">
+    <div class="col-sm-2">
+            <br />
+            <p>
+                <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
+</div>
+    <div class="col-sm-10">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:80px;
+        font-weight:300;">
+            SALE DETAIL
+        </h1>
     </div>
 </div>
 
 <div>
-   
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfTransaction)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfTransaction)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SaleID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SellingPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SellingPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VenderCommission)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VenderCommission)
-        </dd>
+    <div class="row">
+        <div class="col-sm-2">  </div>
+        <div class=" col-lg-9">
 
 
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOfTransaction)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.DateOfTransaction)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SaleID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SellingPrice)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SellingPrice)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.VenderCommission)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.VenderCommission)
+                </dd>
+            </dl>
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SaleID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class=" col-sm-3">   </div>
+<div class="col-sm-9">
+   @* <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>*@
+    <a href="@Url.Action( "Edit", "Sale", new { id = Model.SaleID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+    <a href="@Url.Action( "Delete", "Sale", new { id = Model.SaleID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">DELETE</a>
+</div>
+
+    <br />

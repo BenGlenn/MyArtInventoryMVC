@@ -12,18 +12,15 @@ namespace MyArt.Model
     {
       
         [Required]
-        [Display(Name = "Select Art")]
+        [Display(Name = "Art")]
         public int ArtID { get;  set; }
 
         [Required]
-        [Display(Name = "Select Client")]
+        [Display(Name = "Client")]
         public int ClientID { get; set; }
 
- 
-      
-
         [Required]
-        [Display(Name = "Where Item Sold")]
+       
         public string Location { get; set; }
 
         [Required]
@@ -31,26 +28,27 @@ namespace MyArt.Model
         public decimal Price { get; set; }
         
         [Required]
-        [Display(Name = "Selling Price")]
+        [Display(Name = "Price")]
         public decimal SellingPrice { get; set; }
 
         [Required]
-        [Display(Name = "Vender Fee")]
+        [Display(Name = "Fee")]
         public decimal VenderCommission { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date")]
         public DateTime DateOfTransaction { get; set; }
     }
 
     public class SaleListItem
     {
-        public string Title { get; set; }
+     
         public int SaleID { get; set; }
         public int ArtID { get; set; }
         public int ClientID { get; set; }
-    
+        public string Title { get; set; }
         public string Location { get; set; }
         public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
@@ -72,6 +70,10 @@ namespace MyArt.Model
         public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal VenderCommission { get; set; }
+
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Date")]
         public DateTime DateOfTransaction { get; set; }
     }
 
@@ -80,10 +82,15 @@ namespace MyArt.Model
         public int SaleID { get; set; }
         public int ArtID { get; set; }
         public int ClientID { get; set; }
+        public string Title { get; set; }
         public string Location { get; set; }
         public decimal Price { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal VenderCommission { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date")]
         public DateTime DateOfTransaction { get; set; }
     }
 

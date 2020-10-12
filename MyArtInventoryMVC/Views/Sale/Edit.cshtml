@@ -5,80 +5,92 @@
 }
 
 <br />
-<div class="jumbotronArtDetails">
+<div> </div>
+<img src="~/Content/asset/JUmbo10.jpg" style="width:1150px; height:120px;" />
+<br />
+<br />
+<div class="col-sm-2">
+    <p>
+        @*<a href="@Url.Action( "Details", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
+        <a href="@Url.Action( "Index", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ART</a>
+        <a href="@Url.Action( "Edit", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">EDIT</a>*@
+        <a href="@Url.Action( "Index", "Sale",new { id = Model.SaleID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
+    </p>
 
-    <div class="container text-center">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-warning btn-md" })
-            @Html.ActionLink("Details", "Details", null, new { id = Model.SaleID }, new { @class = "btn btn-warning btn-md" })
-        </div>
-    </div>
 </div>
-
-<h2>Edit Sales Infomation</h2>
-
-
-
+<div class="col-sm-10">
+    <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:80px;
+        font-weight:300;">
+        SALE Edit
+    </h1>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    @Html.HiddenFor(model => model.SaleID)
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.SaleID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SaleID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SaleID, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.SaleID)
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.SaleID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SaleID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SaleID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellingPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SellingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SellingPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VenderCommission, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VenderCommission, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VenderCommission, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateOfTransaction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="SAVE" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;" />
+                <a href="@Url.Action( "Delete", "Sale",new { id = Model.SaleID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">DELETE</a>
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.SellingPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SellingPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SellingPrice, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.VenderCommission, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.VenderCommission, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.VenderCommission, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DateOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DateOfTransaction, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 

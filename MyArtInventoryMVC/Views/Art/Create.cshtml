@@ -5,16 +5,28 @@
 }
 
 <br />
-<div class="jumbotronArtDetails">
-</div>
+<div></div>
+<img src="~/Content/asset/Jumbo3.jpg" style="width:1150px; height:120px;" />
 
 <div class="row">
-    <br />
-    <div class="col-sm-5"> <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>   </div>
-    <div class="col-sm-6">
-        <h2>ART INVENTORY</h2>
+    <div class="col-sm-3">
+        <br />
+        <p>
+            <div class="col-sm-5"> <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>   </div>
+           
+        </p>
+    </div>
+    <div class="col-sm-8">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:100px;
+        font-weight:300;">
+            add new art
+        </h1>
     </div>
 </div>
+
 <div class="row">
     <div class=" col-lg-2">  </div>
     <div class=" col-lg-9">
@@ -131,8 +143,8 @@
                     <div class="col-sm-5">
                     </div>
                     <div>
-                        <input type="submit" value="ADD ART" class="btn btn-default" />
-
+                        @*<input type="submit" value="ADD ART" class="btn btn-default" />*@
+                        <input type="submit" value="ADD ART" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;" />
                     </div>
                 </div>
             </div>

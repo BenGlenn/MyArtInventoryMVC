@@ -72,7 +72,7 @@ namespace MyArt.Model
         public string City { get; set; }
 
         public State State { get; set; }
-        [Display(Name = "Zip Code")]
+        [Display(Name = "Zip")]
         public int ZipCode { get; set; }
 
     }
@@ -99,7 +99,7 @@ namespace MyArt.Model
         public string City { get; set; }
 
         public State State { get; set; }
-        [Display(Name = "Zip Code")]
+        [Display(Name = "Zip")]
         public int ZipCode { get; set; }
     }
 }
