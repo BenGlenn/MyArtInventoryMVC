@@ -4,8 +4,10 @@
     ViewBag.Title = "Index";
 }
 <br />
-<div></div>
+<div class="visible-lg visible-md visible-sm">
+
 <img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+</div>
 <div class="row">
     <div class="col-sm-4">
         <br />
@@ -26,7 +28,7 @@
     </div>
 </div>
 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover visible-lg visible-md visible-sm">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -63,7 +65,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Collector)
             </td>
-            
+
             <td>
                 <a href="@Url.Action( "Details", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
 
@@ -72,6 +74,58 @@
                 <a href="@Url.Action( "Edit", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
 
             </td>
+
+        </tr>
+    }
+
+</table>
+
+<table class="table table-bordered table-hover visible-xs">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collector)
+        </th>*@
+        <th>
+            <p>Details</p>
+        </th>
+        @*<th>
+            <p>Edit</p>
+        </th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Collector)
+            </td>*@
+
+            <td>
+                <a href="@Url.Action( "Details", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+
+            </td>
+            @*<td>
+                <a href="@Url.Action( "Edit", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+
+            </td>*@
 
         </tr>
     }

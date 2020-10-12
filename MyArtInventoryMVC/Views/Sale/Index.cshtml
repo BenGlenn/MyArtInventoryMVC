@@ -5,10 +5,11 @@
 }
 
 <br />
-<div> </div>
-<img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+<div class="visible-lg visible-md visible-sm">
+    <img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+</div>
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <br />
         <p>
             <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">ART</a>
@@ -16,7 +17,7 @@
             <a href="@Url.Action( "Index", "Client")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">CLIENTS</a>
         </p>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8">
         <h1 style="color: crimson;
         text-shadow: 2px 2px 2px black;
         font-family: 'Bangers', cursive;
@@ -33,7 +34,7 @@
         <h3>Total Sales @Model.Sum(i => i.SellingPrice)</h3>
 
     </div>*@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover visible-lg visible-md visible-sm">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.SaleID)
@@ -67,40 +68,113 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.SaleID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.SellingPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VenderCommission)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Location)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateOfTansaction)
-    </td>
-    <td>
-        <a href="@Url.Action( "Details", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
-    </td>
-    <td>
-    <a href="@Url.Action( "Edit", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
-    </td>
-    <td>
-    <a href="@Url.Action( "Delete", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DELETE</a>
-    </td>
-
-
+            <td>
+                @Html.DisplayFor(modelItem => item.SellingPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenderCommission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfTansaction)
+            </td>
+            <td>
+                <a href="@Url.Action( "Details", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+            </td>
+            <td>
+                <a href="@Url.Action( "Edit", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+            </td>
+            <td>
+                <a href="@Url.Action( "Delete", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DELETE</a>
+            </td>
 
 
-</tr>
+
+
+        </tr>
     }
 
 </table>
+
+<table class="table table-bordered table-hover visible-xs">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SaleID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SellingPrice)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.VenderCommission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfTansaction)
+        </th>*@
+        <th>
+            <p>Details</p>
+        </th>
+        @*<th>
+            <p>Edit</p>
+        </th>
+        <th>
+            <p>Delete</p>
+        </th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.SaleID)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SellingPrice)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.VenderCommission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfTansaction)
+            </td>*@
+            <td>
+                <a href="@Url.Action( "Details", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+            </td>
+            @*<td>
+                <a href="@Url.Action( "Edit", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+            </td>
+            <td>
+                <a href="@Url.Action( "Delete", "Sale", new { id = item.SaleID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DELETE</a>
+            </td>*@
+
+
+
+
+        </tr>
+    }
+
+</table>
+
