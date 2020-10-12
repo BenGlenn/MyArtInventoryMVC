@@ -8,16 +8,16 @@
 <div> </div>
 <img src="~/Content/asset/Jumbo8.jpg" style="width:1150px; height:120px;" />
 <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
         <br />
         <p>
             <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
         <h1 style="color: crimson;
         text-shadow: 2px 2px 2px black;
         font-family: 'Bangers', cursive;
-        font-size:80px;
+        font-size:60px;
         font-weight:300;">
             ART DETAIL
         </h1>
@@ -136,7 +136,7 @@
                 position: center;
                 top: -25px;
                 left: -35px;
-                width: 600px;
+                width: 500px;
                 height: auto;
                 display: block;
                 z-index: 999;
@@ -158,7 +158,7 @@
 
             @*Change Item to Model.ArtID*@
           @*  <img src="/Art/RetrieveImage/@Model.ArtID" alt="" height=300 width=400 />*@
-            <img src="/Art/RetrieveImage/@Model.ArtID" class="thumbnail" height=300 width=400 />
+            <img src="/Art/RetrieveImage/@Model.ArtID" class="thumbnail" height=200 width=400 />
 
         </div>
     </div>
