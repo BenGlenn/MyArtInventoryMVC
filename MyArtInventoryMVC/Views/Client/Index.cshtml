@@ -19,7 +19,7 @@
         <h1 style="color: crimson;
         text-shadow: 2px 2px 2px black;
         font-family: 'Bangers', cursive;
-        font-size:100px;
+        font-size:60px;
         font-weight:300;">
             CLIENT LIST
         </h1>
@@ -40,8 +40,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Collector)
         </th>
-
-        <th></th>
+        <th>
+            <p>Details</p>
+        </th>
+        <th>
+            <p>Edit</p>
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -59,17 +63,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Collector)
             </td>
+            
             <td>
-
-
                 <a href="@Url.Action( "Details", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
-              @*  <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ClientID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>*@
-                <a href="@Url.Action( "Edit", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
-
-                @*@Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ClientID })*@
 
             </td>
+            <td>
+                <a href="@Url.Action( "Edit", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+
+            </td>
+
         </tr>
     }
 

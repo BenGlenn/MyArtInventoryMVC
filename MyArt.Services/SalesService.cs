@@ -199,7 +199,7 @@ namespace MyArt.Services
                         FullName = entity.Client.FullName,
                         Title = entity.Art.Title,
                         Location = entity.Location,
-                        Price = entity.Price,
+                        //Price = entity.Price,
                         SellingPrice = entity.SellingPrice,
                         VenderCommission = entity.VenderCommission,
                         DateOfTransaction = entity.DateOfTransaction,
@@ -219,9 +219,9 @@ namespace MyArt.Services
                 entity.SaleID = model.SaleID;
                 //entity.ClientID = model.ClientID;
                 entity.Art.Title = model.Title;
-                entity.ArtID = model.ArtID;
+                //entity.ArtID = model.ArtID;
                 entity.Location = model.Location;
-                entity.Price = model.Price;
+                //entity.Price = model.Price;
                 entity.SellingPrice = model.SellingPrice;
                 entity.VenderCommission = model.VenderCommission;
                 entity.DateOfTransaction = model.DateOfTransaction;

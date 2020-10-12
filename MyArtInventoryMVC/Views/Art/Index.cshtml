@@ -30,7 +30,7 @@
         <h1 style="color: crimson;
         text-shadow: 2px 2px 2px black;
         font-family: 'Bangers', cursive;
-        font-size:100px;
+        font-size:60px;
         font-weight:300;">
             INVENTORY
         </h1>
@@ -57,90 +57,86 @@
         <th>
             @Html.DisplayNameFor(model => model.Sold)
         </th>
-        <th></th>
+        <th>
+             <p>Details</p>
+        </th>
+        <th>
+            <p>Add Story</p>
+        </th>
+        <th>
+            <p>Edit</p>
+        </th>
+        <th>
+            <p>Sell</p>
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
 
 
-        <tr>
+<tr>
 
-            <td>
-                <img src="/Art/RetrieveImage/@item.ArtID" class="thumbnail" height=100 width=100 />
-            </td>
-           
-                @*var testingthis = item.ArtID;
-                    }
-                    <td>
-                        <img src="/Art/RetrieveImage/@item.ArtID" id="myImg" height=130 width=200 />
-                    </td>*@
+    <td>
+        <img src="/Art/RetrieveImage/@item.ArtID" class="thumbnail" height=100 width=100 />
+    </td>
 
-                @*<td>
-                        <img src="/Art/RetrieveImage/@item.ArtID" height=130 width=200 data-toggle="modal" class="thumbnail" />
-                    </td>*@
+    @*var testingthis = item.ArtID;
+        }
+        <td>
+            <img src="/Art/RetrieveImage/@item.ArtID" id="myImg" height=130 width=200 />
+        </td>*@
 
-
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.ArtID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfCreation)
-                </td>
-                <th>
-                    @Html.DisplayFor(model => item.Sold)
-                </th>
+    @*<td>
+            <img src="/Art/RetrieveImage/@item.ArtID" height=130 width=200 data-toggle="modal" class="thumbnail" />
+        </td>*@
 
 
-                <td>
 
-                    @*{
-                        @Html.ActionLink("SELL", "Create", "Sale", null)
-
-                        }*@
-                    @*<div class="row">
-                        <div class="col-sm-12">*@
-
-                    <a href="@Url.Action( "Details", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
-
-                    <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>
-                    <a href="@Url.Action( "Edit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
-                    @if (item.Sold == false)
-                    {
-
-                        <a href="@Url.Action( "Create", "Sale", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">SELL</a>
-                    }
-                    @*</div>
-                        </div>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.ArtID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfCreation)
+    </td>
+    <th>
+        @Html.DisplayFor(model => item.Sold)
+    </th>
 
 
-                    @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
-                    @* @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)*@
+    <td>
+        <a href="@Url.Action( "Details", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+    </td>
+    <td>
+        <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>
+    </td>
+    <td>
+        <a href="@Url.Action( "Edit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+    </td>
+    <td>
+    @if (item.Sold == false)
+    {
+
+        <a href="@Url.Action( "Create", "Sale", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">SELL</a>
+    }
+    </td>
 
 
-                </td>
-            </tr>
+
+</tr>
             <style>
                 .thumbnail:hover {
-
-
-
-
-
-
-
 
                     position:center;
                     top: -25px;
                     left: -35px;
-                    width: 400px;
+                    width:250px;
                     height: auto;
                     display: block;
                     z-index: 999;

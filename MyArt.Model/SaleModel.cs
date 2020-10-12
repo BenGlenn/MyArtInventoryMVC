@@ -44,7 +44,8 @@ namespace MyArt.Model
 
     public class SaleListItem
     {
-     
+
+       
         public int SaleID { get; set; }
         public int ArtID { get; set; }
         public int ClientID { get; set; }
