@@ -5,69 +5,57 @@
 }
 
 <br />
-<div class="jumbotronArtDetails">
-
-    <div class="container text-center">
+<div> </div>
+<img src="~/Content/asset/Jumbo8.jpg" style="width:1150px; height:120px;" />
+<div class="row">
+    <div class="col-sm-2">
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-warning btn-md" })
-
-            @*@Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-        @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })*@
-
-            @if (Model.Sold == false)
-            {
-                @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
-
-            }
-        </div>
+        <p>
+            <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
     </div>
+    <div class="col-sm-10">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:80px;
+        font-weight:300;">
+            ART DETAIL
+        </h1>
+    </div>
+    @*<div>
+            <br />
+            <p>
+                <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
+
+                @if (Model.Sold == false)
+                {
+                    @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-md" })
+                    <a href="@Url.Action( "Create", "Sale", new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
+                }
+        </div>*@
 </div>
 
+
+
+<hr />
 <div class="container">
 
     <br />
     <div class="row">
-        <hr />
-        @*<div class="col-md-1">
+        <div class="col-md-">   </div>
 
-        </div>*@
-        @*<div class="col-md-2">
-            <br />
-            <br />
-            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
-            <br />
-            <br />
-
-            @Html.ActionLink("Back", "Index") |
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
-
-
-            @if (Model.Sold == false)
-            {
-                @Html.ActionLink("Sell", "Create", "Sale")
-
-            }
-        </div>*@
-        <div class="col-md-4">
+        <div class="col-md-5">
             <dl class="dl-horizontal">
-
-                <br />
-                <br />
-                <br />
-
-
-
                 <dt>
+                    <br />
                     @Html.DisplayNameFor(model => model.Title)
                 </dt>
 
-                <dd>
+                <dd style="color: crimson;
+        text-shadow: 1px 1px 1px black;
+        font-family: 'Bangers', cursive;
+        font-size:30px;
+        font-weight:100;">
                     @Html.DisplayFor(model => model.Title)
                 </dd>
 
@@ -127,51 +115,68 @@
                     @Html.DisplayFor(model => model.Location)
                 </dd>
             </dl>
-        </div>
-        <div class="col-md-3">
-            <br />
-            <br />
-            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
-            <br />
-            <br />
-
-            @Html.ActionLink("Back", "Index") |
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
-
+            <div class="col-lg-3">   </div>
 
             @if (Model.Sold == false)
             {
-                @Html.ActionLink("Sell", "Create", "Sale")
+
+                <a href="@Url.Action( "Create", "Sale",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
 
             }
-        </div>
-        <div class="col-md-4">
-            <h2> STORY</h2>
-            @*@Html.DisplayNameFor(model => model.Note)*@
+            <a href="@Url.Action( "Index", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ART</a>
+            <a href="@Url.Action( "Edit", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+            <a href="@Url.Action( "Delete", "Art",new { id = Model.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">DELETE</a>
 
-            @Html.DisplayFor(model => model.Note)
 
         </div>
-        @*<div class="col-md-2">
-            <br />
-            <br />
-            <img id="radius" href="#" src="~/Content/asset/Art2.png" width="200 " height="200 ">
-            <br />
-            <br />
+        <style>
 
-            @Html.ActionLink("Back", "Index") |
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ArtID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ArtID }) |
-
-
-            @if (Model.Sold == false)
-            {
-                @Html.ActionLink("Sell", "Create", "Sale")
-
+            .thumbnail:hover {
+               
+                position: center;
+                top: -25px;
+                left: -35px;
+                width: 600px;
+                height: auto;
+                display: block;
+                z-index: 999;
             }
-        </div>*@
+            /*.zoom {*/
+/*                padding: 50px;*/
+/*                background-color: green;*/
+                /*transition: transform .2s;*/ /* Animation */
+           /*     width: 200px;
+                height: 200px;
+                margin: 0 auto;*/
+            /*}
 
+                .zoom:hover {
+                    transform: scale(1.5);*/ /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+                /*}*/
+        </style>
+        <div>
+
+            @*Change Item to Model.ArtID*@
+          @*  <img src="/Art/RetrieveImage/@Model.ArtID" alt="" height=300 width=400 />*@
+            <img src="/Art/RetrieveImage/@Model.ArtID" class="thumbnail" height=300 width=400 />
+
+        </div>
     </div>
+    <br />
+</div>
+
+
+
+<div class="col-md-1"></div>
+<div class="col-md-9">
+    <h2 style="color: crimson;
+        text-shadow: 1px 1px 1px black;
+        font-family: 'Bangers', cursive;
+        font-size:30px;
+        font-weight:100;">
+        STORY
+    </h2>
+    @Html.DisplayFor(model => model.Note)
+</div>
 </div>
 

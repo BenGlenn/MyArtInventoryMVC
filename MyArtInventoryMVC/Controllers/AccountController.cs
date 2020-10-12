@@ -58,6 +58,10 @@ namespace MyArtInventoryMVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Art");
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -69,6 +73,7 @@ namespace MyArtInventoryMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -80,7 +85,7 @@ namespace MyArtInventoryMVC.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Art");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -97,11 +102,16 @@ namespace MyArtInventoryMVC.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Art");
+            }
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
                 return View("Error");
             }
+
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
@@ -112,8 +122,11 @@ namespace MyArtInventoryMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
+         
+
             if (!ModelState.IsValid)
             {
+              
                 return View(model);
             }
 
@@ -125,7 +138,7 @@ namespace MyArtInventoryMVC.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(model.ReturnUrl);
+                    return RedirectToAction("Index", "Art");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.Failure:
@@ -164,7 +177,7 @@ namespace MyArtInventoryMVC.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Art");
                 }
                 AddErrors(result);
             }

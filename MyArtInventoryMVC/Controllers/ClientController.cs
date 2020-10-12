@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MyArtInventoryMVC.Controllers
 {
+    [Authorize]
     public class ClientController : Controller
     {
         // GET: Client

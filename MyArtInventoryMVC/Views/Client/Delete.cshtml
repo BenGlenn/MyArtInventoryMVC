@@ -98,8 +98,9 @@
             <div class="col-md-1">   </div>
             <div class="col-md-8">
                 <div class="form-actions no-color">
-                    @Html.ActionLink("Back to List", "Index") |
-                    <input type="submit" value="Delete" class="btn btn-default" />
+                    <a href="@Url.Action( "Index", "Client")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">BACK</a>
+                  
+                    <input type="submit" value="Delete" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;" />
                 </div>
             </div>
         </div>

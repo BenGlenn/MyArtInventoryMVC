@@ -34,6 +34,8 @@ namespace MyArt.Data
         [Required]
         public DateTime DateOfCreation { get; set; }
 
+        public byte[] ImageContent { get; set; }
+
         public string Note { get; set; }
     }
 

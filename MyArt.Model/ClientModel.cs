@@ -13,16 +13,18 @@ namespace MyArt.Model
        
         public bool Collector { get; set; }
         [Required]
+        [Display(Name = "Fisrt")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "Last")]
         public string LastName { get; set; }
         [Required]
         [EmailAddress]
-        [Display(Name = "Email Address")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Phone")]
         public string PhoneNumber { get; set; }
         
         public string Address { get; set; }
@@ -30,7 +32,7 @@ namespace MyArt.Model
         public string City { get; set; }
 
         public State State { get; set; }
-        [Display(Name = "Zip Code")]
+        [Display(Name = "Zip")]
         public int ZipCode { get; set; }
 
 
@@ -70,7 +72,7 @@ namespace MyArt.Model
         public string City { get; set; }
 
         public State State { get; set; }
-        [Display(Name = "Zip Code")]
+        [Display(Name = "Zip")]
         public int ZipCode { get; set; }
 
     }
@@ -97,7 +99,7 @@ namespace MyArt.Model
         public string City { get; set; }
 
         public State State { get; set; }
-        [Display(Name = "Zip Code")]
+        [Display(Name = "Zip")]
         public int ZipCode { get; set; }
     }
 }

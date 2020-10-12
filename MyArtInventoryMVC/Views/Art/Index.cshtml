@@ -4,30 +4,44 @@
 }
 
 <br />
-<div class="jumbotronArt">
+<div> </div>
+<img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+@*<div>
+        <br />
+        <p>
+            <a href="@Url.Action( "ListUnsoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">IN STOCK</a>
+            <a href="@Url.Action( "Create", "Art")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">ADD ART</a>
+            <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SOLD</a>
+            <a href="@Url.Action("ListUnSoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
+        </p>
+    </div>*@
 
-
-    <div class="container text-center">
+<div class="row">
+    <div class="col-sm-4">
         <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("ADD ART", "Create", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("IN STOCK", "ListUnSoldArt", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-        </div>
+        <p>
+            <a href="@Url.Action( "ListUnsoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">IN STOCK</a>
+            <a href="@Url.Action( "Create", "Art")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">ADD ART</a>
+            <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SOLD</a>
+            @* <a href="@Url.Action("ListUnSoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>*@
+        </p>
+    </div>
+    <div class="col-sm-8">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:100px;
+        font-weight:300;">
+            INVENTORY
+        </h1>
     </div>
 </div>
 
-
-
-
-
-<h2> ART INVENTORY</h2>
 <table class="table table-bordered table-hover">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageContent)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ArtID)
         </th>
@@ -48,46 +62,118 @@
 
     @foreach (var item in Model)
     {
+
+
         <tr>
+
             <td>
-                @Html.DisplayFor(modelItem => item.ArtID)
+                <img src="/Art/RetrieveImage/@item.ArtID" class="thumbnail" height=100 width=100 />
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfCreation)
-            </td>
-            <th>
-                @Html.DisplayFor(model => item.Sold)
-            </th>
+           
+                @*var testingthis = item.ArtID;
+                    }
+                    <td>
+                        <img src="/Art/RetrieveImage/@item.ArtID" id="myImg" height=130 width=200 />
+                    </td>*@
+
+                @*<td>
+                        <img src="/Art/RetrieveImage/@item.ArtID" height=130 width=200 data-toggle="modal" class="thumbnail" />
+                    </td>*@
 
 
-            <td>
 
-                @*{
-        @Html.ActionLink("SELL", "Create", "Sale", null)
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfCreation)
+                </td>
+                <th>
+                    @Html.DisplayFor(model => item.Sold)
+                </th>
 
-        }*@
-                @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Add Story", "StoryEdit", new { id = item.ArtID })|
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
-             
-                @if (item.Sold == false)
-                {
-                    @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-sm" })
 
+                <td>
+
+                    @*{
+                        @Html.ActionLink("SELL", "Create", "Sale", null)
+
+                        }*@
+                    @*<div class="row">
+                        <div class="col-sm-12">*@
+
+                    <a href="@Url.Action( "Details", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+
+                    <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>
+                    <a href="@Url.Action( "Edit", "Art", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+                    @if (item.Sold == false)
+                    {
+
+                        <a href="@Url.Action( "Create", "Sale", new { id = item.ArtID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">SELL</a>
+                    }
+                    @*</div>
+                        </div>*@
+
+
+                    @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
+                    @* @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)*@
+
+
+                </td>
+            </tr>
+            <style>
+                .thumbnail:hover {
+
+
+
+
+
+
+
+
+                    position:center;
+                    top: -25px;
+                    left: -35px;
+                    width: 400px;
+                    height: auto;
+                    display: block;
+                    z-index: 999;
+                    display: block;
+                    /*                position: fixed;*/
+                    top: 40%;
+                    left: 50%;
+                    /*    margin-top: -194px;  Half of the popups height
+                margin-left: -630px;*/
+                }
+            </style>
+
+                <div id="myModal" class="modal" style="display:none; position:fixed; z-index: 1; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: transparent; background-color: rgba(0,0,0,0.9)">
+                    <span class="close" style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size; font-weight: bold; transition: 0.3s;">&times;</span>
+                    <img class="modal-content" id="img01" style="margin: auto; display: block; width: 80%; max-width: 700px;" />
+                    <div id="caption"></div>
+                </div>
+            }
+
+        </table>
+        @*<script>
+                var modal = document.getElementById("myModal");
+
+                var img = document.getElementById("myImg");
+                var modalImg = document.getElementById("img01");
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
                 }
 
-                @*  @Html.ActionLink("Delete", "Delete", new { id = item.ArtID })*@
-                @* @Html.ActionLink($"{item.ArtID}", "Create", "Sale", new { id = item.ArtID }, null)*@
+                var span = document.getElementsByClassName("close")[0];
 
-
-            </td>
-        </tr>
-    }
-
-</table>
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+            </script>*@

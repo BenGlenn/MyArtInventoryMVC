@@ -37,6 +37,7 @@ namespace MyArtInventoryMVC.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Story> Stories { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

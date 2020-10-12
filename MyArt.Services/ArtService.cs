@@ -3,9 +3,11 @@ using MyArt.Model;
 using MyArtInventoryMVC.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MyArt.Services
 {
@@ -18,8 +20,13 @@ namespace MyArt.Services
             _userId = userId;
         }
 
-        public bool CreateArt(ArtCreate model)
+        // TO POST AN IMG YOU NEED THE HttpPosted //
+        public bool CreateArt(HttpPostedFileBase file, ArtCreate model)
         {
+
+            // This piece of code calls a method that converts your img into Bytes //
+            model.ImageContent = ConvertToBytes(file);
+
             var entity =
                 new Art()
                 {
@@ -34,6 +41,8 @@ namespace MyArt.Services
                     Sold = model.Sold,
                     DateOfCreation = model.DateOfCreation,
                     Note = model.Note,
+                    ImageContent = model.ImageContent
+                    //ImageContent = bytes
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -43,9 +52,26 @@ namespace MyArt.Services
             }
         }
 
+        // This is the Method that converts you img into bytes //
+        public byte[] ConvertToBytes(HttpPostedFileBase image)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(image.InputStream);
+            imageBytes = reader.ReadBytes((int)image.ContentLength);
+            return imageBytes;
+        }
 
+        // This is the method needed to send to the controler to get Img //
+        public byte[] GetImageFromDB(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var q = from temp in ctx.Arts where temp.ArtID == id select temp.ImageContent;
+                byte[] cover = q.First();
+                return cover;
 
-
+            }
+        }
 
 
         public IEnumerable<ArtListItem> GetArt()
@@ -60,6 +86,7 @@ namespace MyArt.Services
                             e =>
                                 new ArtListItem
                                 {
+                                    ImageContent = e.ImageContent,
                                     ArtID = e.ArtID,
                                     Title = e.Title,
                                     Price = e.Price,
@@ -72,33 +99,6 @@ namespace MyArt.Services
                 return query.ToArray();
             }
         }
-        // I set the view to the Sale Index view gives total... Didn't need this anymore//////
-
-        //public IEnumerable<ArtListItem> GetSoldArt()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //                .Arts
-        //                .Where(e => e.OwnerID == _userId && e.Sold == true)
-        //                .Select(
-        //                    e =>
-        //                        new ArtListItem
-        //                        {
-        //                            ArtID = e.ArtID,
-        //                            Title = e.Title,
-        //                            Price = e.Price,
-        //                            DateOfCreation = e.DateOfCreation,
-
-        //                        }
-        //                );
-
-        //        return query.ToArray();
-        //    }
-        //}
-
-
 
         public IEnumerable<ArtListItem> GetUnSoldArt()
         {
@@ -112,6 +112,7 @@ namespace MyArt.Services
                             e =>
                                 new ArtListItem
                                 {
+                                    ImageContent = e.ImageContent,
                                     ArtID = e.ArtID,
                                     Title = e.Title,
                                     Price = e.Price,
@@ -135,6 +136,7 @@ namespace MyArt.Services
                 return
                     new ArtDetail
                     {
+                        ImageContent = entity.ImageContent,
                         ArtID = entity.ArtID,
                         Title = entity.Title,
                         Style = entity.Style,
@@ -150,20 +152,6 @@ namespace MyArt.Services
             }
         }
 
-      
-
-        //public bool SoldArtTrue(int id)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //                .Arts
-        //                .Single(e => e.ArtID == id && e.OwnerID == _userId);
-        //        return entity.Sold = true;
-
-        //    }
-        //}
 
         public ArtNoteDetial GetNoteByArtId(int id)
         {
@@ -185,14 +173,19 @@ namespace MyArt.Services
             }
         }
 
-        public bool UpdateArt(ArtEdit model)
+        public bool UpdateArt(HttpPostedFileBase file, ArtEdit model)
         {
+
+            model.ImageContent = ConvertToBytes(file);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Arts
                         .Single(e => e.ArtID == model.ArtID && e.OwnerID == _userId);
+
+                entity.ImageContent = model.ImageContent;
                 entity.ArtID = model.ArtID;
                 entity.Title = model.Title;
                 entity.Style = model.Style;
@@ -204,6 +197,7 @@ namespace MyArt.Services
                 entity.Sold = model.Sold;
                 entity.DateOfCreation = model.DateOfCreation;
                 entity.Note = model.Note;
+
 
                 return ctx.SaveChanges() == 1;
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using MyArt.Model;
 using MyArt.Services;
+using MyArtInventoryMVC.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MyArtInventoryMVC.Controllers
 {
+    [Authorize]
     public class ArtController : Controller
     {
         // GET: ART
@@ -18,6 +20,7 @@ namespace MyArtInventoryMVC.Controllers
             var service = new ArtService(userId);
             var model = service.GetArt();
             return View(model);
+
         }
 
         public ActionResult ListUnSoldArt()
@@ -32,25 +35,36 @@ namespace MyArtInventoryMVC.Controllers
             return View();
         }
 
-        // NO LONGER NEEDED GOING TO SALE INDEX ////
+        //RETRIEVE IMAGE -  CONNECTS TO THE SERVICE CLASS //
 
-        //public ActionResult GetTotalSales()
-        //{
-        //    var userId = Guid.Parse(User.Identity.GetUserId());
-        //    var service = new ArtService(userId);
-        //    var model = service.GetSoldArt();
-        //    return View(model);
-        //}
+        public ActionResult RetrieveImage(int id)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ArtService(userId);
+            byte[] cover = service.GetImageFromDB(id);
+            if (cover != null)
+            {
+                return File(cover, "image/jpg");
+            }
+            else
+            {
+                return null;
+            }
+        }
+      
+        // MUST HAVE THE HttpPostedFileBase //
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArtCreate model)
         {
+            HttpPostedFileBase file = Request.Files["ImageData"];
+
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateArtService();
 
-            if (service.CreateArt(model))
+            if (service.CreateArt(file, model))
             {
                 TempData["SaveResult"] = "Your Art was added to your inventory.";
                 return RedirectToAction("Index");
@@ -82,6 +96,7 @@ namespace MyArtInventoryMVC.Controllers
             var model =
                 new ArtEdit
                 {
+                    ImageContent = detail.ImageContent,
                     ArtID = detail.ArtID,
                     Title = detail.Title,
                     Style = detail.Style,
@@ -102,6 +117,8 @@ namespace MyArtInventoryMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ArtEdit model)
         {
+            HttpPostedFileBase file = Request.Files["ImageData"];
+
             if (!ModelState.IsValid) return View(model);
 
             if (model.ArtID != id)
@@ -112,7 +129,7 @@ namespace MyArtInventoryMVC.Controllers
 
             var service = CreateArtService();
 
-            if (service.UpdateArt(model))
+            if (service.UpdateArt(file, model))
             {
                 TempData["SaveResult"] = "Your Art Information Was Updated.";
                 return RedirectToAction("Index");
@@ -159,11 +176,6 @@ namespace MyArtInventoryMVC.Controllers
             ModelState.AddModelError("", "Your Art Was Not UPDATED.");
             return View(model);
         }
-
-
-
-
-
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)

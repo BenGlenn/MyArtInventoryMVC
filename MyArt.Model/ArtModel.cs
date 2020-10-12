@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MyArt.Model
 {
@@ -23,7 +24,7 @@ namespace MyArt.Model
         [Required]
         public decimal Price { get; set; }
         [Required]
-        [Display(Name = "Art Location")]
+        [Display(Name = "Location")]
         public string Location { get; set; }
         [Required]
         [Display(Name = "Mark Sold")]
@@ -32,19 +33,22 @@ namespace MyArt.Model
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Date of Creation")]
+        [Display(Name = "Date")]
         public DateTime DateOfCreation { get; set; }
         [Display(Name = "Story")]
         public string Note { get; set; }
-
+        [Display(Name = "Image")]
+        public byte[] ImageContent { get; set; }
     }
 
     public class ArtListItem
     {
+        [Display(Name = "Image")]
+        public  byte[] ImageContent { get; set; }
         public int ArtID { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
-        [Display(Name = "Date of Creation")]
+        [Display(Name = "Date")]
         public DateTime DateOfCreation { get; set; }
         public bool Sold { get; set; }
 
@@ -52,6 +56,8 @@ namespace MyArt.Model
 
     public class ArtDetail
     {
+        [Display(Name = "Image")]
+        public byte[] ImageContent { get; set; }
         public int ArtID { get; set; }
         public string Title { get; set; }
 
@@ -68,7 +74,7 @@ namespace MyArt.Model
 
         public decimal Price { get; set; }
 
-        [Display(Name = "Art location?")]
+        [Display(Name = "location?")]
         public string Location { get; set; }
 
         public bool Sold { get; set; }
@@ -86,6 +92,8 @@ namespace MyArt.Model
 
     public class ArtEdit
     {
+        [Display(Name = "Image")]
+        public byte[] ImageContent { get; set; }
         public int ArtID { get; set; }
 
         public string Title { get; set; }
@@ -101,12 +109,12 @@ namespace MyArt.Model
         public decimal Price { get; set; }
 
         public string Location { get; set; }
-
+    
         public bool Sold { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Date of Creation")]
+        [Display(Name = "Date")]
         public DateTime DateOfCreation { get; set; }
         [Display(Name = "Story")]
         public string Note { get; set; }

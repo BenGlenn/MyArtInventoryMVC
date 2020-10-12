@@ -5,23 +5,28 @@
 }
 
 <br />
-<div class="jumbotronArt">
-
-
-    <div class="container text-center">
+<div></div>
+<img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+<div class="row">
+    <div class="col-sm-3">
         <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("SOLD", "Index", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("ADD ART", "Create", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-        </div>
+        <p>
+            <a href="@Url.Action( "Index", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ART</a>
+            <a href="@Url.Action( "Create", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ADD ART</a>
+            <a href="@Url.Action( "Index", "Sale")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">SOLD</a>
+        </p>
+    </div>
+    <div class="col-sm-8">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:100px;
+        font-weight:300;">
+            AVALIABLE ART
+        </h1>
     </div>
 </div>
-<h2> AVALIABLE ART</h2>
+  
 
 <table class="table table-bordered table-hover">
     <tr>
@@ -63,14 +68,14 @@
             </td>
             <td>
 
-                @Html.ActionLink("Details", "Details", new { id = item.ArtID }) |
-                @Html.ActionLink("Story", "StoryEdit", new { id = item.ArtID })|
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArtID }) |
 
+                <a href="@Url.Action( "Details", "Art", new { id = item.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+                <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>
+                <a href="@Url.Action( "Edit", "Art", new { id = item.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">EDIT</a>
                 @if (item.Sold == false)
                 {
-                    @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-sm" })
 
+                    <a href="@Url.Action( "Create", "Sale", new { id = item.ArtID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
                 }
 
             </td>

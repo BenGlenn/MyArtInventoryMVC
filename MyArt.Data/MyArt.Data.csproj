@@ -57,6 +57,24 @@
     <Compile Include="Art.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="Migrations\202009301747557_InitialCreate.cs" />
+    <Compile Include="Migrations\202009301747557_InitialCreate.Designer.cs">
+      <DependentUpon>202009301747557_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051948596_AddImgData.cs" />
+    <Compile Include="Migrations\202010051948596_AddImgData.Designer.cs">
+      <DependentUpon>202010051948596_AddImgData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051954121_ImgForeignKey.cs" />
+    <Compile Include="Migrations\202010051954121_ImgForeignKey.Designer.cs">
+      <DependentUpon>202010051954121_ImgForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061805153_AddImageToArtData.cs" />
+    <Compile Include="Migrations\202010061805153_AddImageToArtData.Designer.cs">
+      <DependentUpon>202010061805153_AddImageToArtData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="Story.cs" />
@@ -64,6 +82,20 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009301747557_InitialCreate.resx">
+      <DependentUpon>202009301747557_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051948596_AddImgData.resx">
+      <DependentUpon>202010051948596_AddImgData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051954121_ImgForeignKey.resx">
+      <DependentUpon>202010051954121_ImgForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061805153_AddImageToArtData.resx">
+      <DependentUpon>202010061805153_AddImageToArtData.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

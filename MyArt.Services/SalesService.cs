@@ -28,7 +28,6 @@ namespace MyArt.Services
                 new Sale()
                 {
                     OwnerID = _userId,
-
                     ArtID = model.ArtID,
                     ClientID = model.ClientID,
                     Price = model.Price,
@@ -163,11 +162,11 @@ namespace MyArt.Services
                             e =>
                                 new SaleListItem
                                 {
-                                    Title = e.Art.Title,
+                                  
                                     SaleID = e.SaleID,
                                     ArtID = e.ArtID,
                                     ClientID = e.ClientID,
-                                 
+                                    Title = e.Art.Title,
                                     Location = e.Location,
                                     Price = e.Price,
                                     SellingPrice = e.SellingPrice,
@@ -217,8 +216,10 @@ namespace MyArt.Services
                     ctx
                         .Sales
                         .Single(e => e.SaleID == model.SaleID && e.OwnerID == _userId);
-                //entity.ArtID = model.ArtID;
+                entity.SaleID = model.SaleID;
                 //entity.ClientID = model.ClientID;
+                entity.Art.Title = model.Title;
+                entity.ArtID = model.ArtID;
                 entity.Location = model.Location;
                 entity.Price = model.Price;
                 entity.SellingPrice = model.SellingPrice;

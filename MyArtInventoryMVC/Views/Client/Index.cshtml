@@ -4,24 +4,28 @@
     ViewBag.Title = "Index";
 }
 <br />
-<div class="jumbotronArt">
-
-
-    <div class="container text-center">
+<div></div>
+<img src="~/Content/asset/Jumbo2.jpg" style="width:1150px; height:120px;" />
+<div class="row">
+    <div class="col-sm-4">
         <br />
-        <br />
-        <br />
-        <br />
-        <div>
-            @Html.ActionLink("ADD CLIENT", "Create", "Client", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("ART", "Index", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-            @Html.ActionLink("SELL", "Create", "Sale", null, new { @class = "btn btn-warning btn-lg btn-huge" })
-        </div>
+        <p>
+            <a href="@Url.Action( "Create", "Client")" class="btn btn-sm" style="background-color:crimson !important; color: white !important;">ADD CLIENT</a>
+            <a href="@Url.Action( "Index", "ART")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ART</a>
+            <a href="@Url.Action("ListUnSoldArt", "Art")" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">SELL</a>
+        </p>
+    </div>
+    <div class="col-sm-8">
+        <h1 style="color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:100px;
+        font-weight:300;">
+            CLIENT LIST
+        </h1>
     </div>
 </div>
 
-
-<h2> CLIENT LIST </h2>
 <table class="table table-bordered table-hover">
     <tr>
         <th>
@@ -36,32 +40,37 @@
         <th>
             @Html.DisplayNameFor(model => model.Collector)
         </th>
-     
+
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ClientID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Collector)
-    </td>
-    <td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Collector)
+            </td>
+            <td>
 
-        @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
-        @Html.ActionLink("Edit", "Edit", new { id = item.ClientID })
 
-    </td>
-</tr>
+                <a href="@Url.Action( "Details", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">DETAILS</a>
+              @*  <a href="@Url.Action( "StoryEdit", "Art", new { id = item.ClientID })" class="btn btn-sm" style=" background-color:crimson !important; color: white !important;">ADD STORY</a>*@
+                <a href="@Url.Action( "Edit", "Client", new { id = item.ClientID })" class="btn btn-xs" style=" background-color:crimson !important; color: white !important;">EDIT</a>
+
+                @*@Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ClientID })*@
+
+            </td>
+        </tr>
     }
 
 </table>

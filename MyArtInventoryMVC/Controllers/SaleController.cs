@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MyArtInventoryMVC.Controllers
 {
+    [Authorize]
     public class SaleController : Controller
     {
        
@@ -24,7 +25,7 @@ namespace MyArtInventoryMVC.Controllers
             var model = service.GetSale();
             return View(model);
         }
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
             //VIEW BAG CODE//////
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -48,7 +49,49 @@ namespace MyArtInventoryMVC.Controllers
             //ViewBag.Clients = price;
 
             return View();
-           
+
+
+            ///ANDREW CODE ///
+
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            //ArtService art = new ArtService(userId);
+            //var service = art.GetArtById(id);
+            ////var detail = service.GetArtById(id);
+
+            //ViewBag.Art = CallArtTitle(service);
+
+            //var clientService = new ClientService(userId);
+            //var clientID = clientService.GetClient();
+            //var client = new SelectList(clientID, "ClientID", "FullName");
+            //ViewBag.Clients = client;
+
+            //return View();
+
+            ///ANDREW CODE ///
+
+            //VIEW BAG CODE//////
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            //var artService = new ArtService(userId);
+
+
+            //var artID = artService.GetUnSoldArt();
+            //var art = new SelectList(artID, "ArtID", "Title");
+            //ViewBag.Arts = art;
+
+            //var art = CallArtTitle();
+            //var art = new SelectList(artID, "ArtID", "Title");
+            //ViewBag.Arts = art;
+            //var client = new SelectList(clientID, "ClientID", "FullName");
+            //ViewBag.Clients = client;
+            /// VIEW BAG CODE ENDS////
+
+
+            //var priceGet = new ArtService(userId);
+            //var truePrice = priceGet.GetArt();
+
+            //var price = new SelectList(truePrice, "Price");
+            //ViewBag.Clients = price;
+
         }
 
         [HttpPost]
@@ -144,9 +187,10 @@ namespace MyArtInventoryMVC.Controllers
             var model =
                 new SaleEdit
                 {
-                   //SaleId = detail.SaleID,
-                   //ArtID = detail.ArtID,
-                   //ClientID = detail.ClientID,
+                    SaleID = detail.SaleID,
+                    //ArtID = detail.ArtID,
+                    //ClientID = detail.ClientID,
+                    Title = detail.Title,
                    Location = detail.Location,
                    Price = detail.Price,
                    SellingPrice = detail.SellingPrice,
@@ -211,6 +255,13 @@ namespace MyArtInventoryMVC.Controllers
             return service;
         }
 
+        private SelectList CallArtTitle(ArtDetail detail)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var artService = new ArtService(userId);
+
+            return new SelectList(artService.GetUnSoldArt(), "ArtID", "Title", detail.ArtID);
+        }
        
     }
 }

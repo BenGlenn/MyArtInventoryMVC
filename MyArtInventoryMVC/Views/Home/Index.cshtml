@@ -4,23 +4,33 @@
 
 
 
-<div class="jumbotron">
 
-    <div class="container text-center">
-        <h1 style="color:antiquewhite">My Art Inventory</h1>
-        @Html.ActionLink("VIEW COLLECTION", "Index", "Art", null, new { @class = "btn btn-warning btn-lg btn-huge" })
+    <div class="jumbotronHome">
+        <br />
 
+        <div class="container text-center">
+            @*<img src="~/Content/asset/4.png" style="width:500px; height:400px;" />*@
+            <h1 style="        color: crimson;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Bangers', cursive;
+        font-size:100px;
+        font-weight:300;">
+                Art Inventory
+            </h1>
+            <p class="text-center"><a href="@Url.Action( "Index", "Art")" class="btn btn-lg" style="align-items:center; background-color:crimson !important; color: white !important;">INVENTORY &raquo;</a></p>
+
+            @* gray square box*@
+            @* <div style="background-color: rgba(255, 255, 255, 0.5); height: 50px; width: 100px;">  </div>*@
+
+        </div>
 
 
     </div>
-
-
-</div>
 @* <p class="lead">My Art Inventory will help you keep track of all your art creations as well as track your sales, collectors, and art stories.</p>*@
 
 @*@Html.ActionLink("Client List", "Index", "Client", null, new { @class = "btn btn-primary btn-large ml-3"  })
     @Html.ActionLink("Sales", "SaleDirection", "Sale", null, new { @class = "btn btn-primary btn-large mr-3" })*@
-</div>
+   
 
 @*<div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
